@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plataforma educativa digital de primeros auxilios">
+<title>AUXISALUD | Plataforma digital de primeros auxilios</title>
+<style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#075a68;
+  --teal:#008c9b;
+  --cyan:#16b9c7;
+  --sky:#e8f8fa;
+  --pale:#f5fbfc;
+  --green:#28a978;
+  --text:#173f49;
+  --muted:#607b83;
+  --line:#d9ecef;
+  --white:#fff;
+  --shadow:0 12px 35px rgba(4,77,89,.09);
+}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.55;
+}
+a{text-decoration:none}
+img{max-width:100%;display:block}
+button,input,textarea,select{font:inherit}
+
+/* ===== INSTITUTIONAL HEADER ===== */
+header,.topbar,nav{
+  position:sticky!important;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97)!important;
+  border:0!important;
+  border-bottom:1px solid var(--line)!important;
+  box-shadow:0 3px 20px rgba(4,77,89,.08)!important;
+  backdrop-filter:blur(14px);
+}
+header>*{
+  max-width:1250px;
+  margin:auto;
+}
+.logo,.brand{
+  color:var(--navy)!important;
+  font-weight:800!important;
+}
+nav a,.nav a{
+  color:#355c64!important;
+  font-weight:650;
+  padding:10px 13px!important;
+  border-radius:10px;
+}
+nav a:hover,.nav a:hover{color:var(--teal)!important;background:var(--sky)!important}
+
+/* ===== MAIN HERO, PORTAL-STYLE ===== */
+.hero,.section-hero,.banner{
+  position:relative;
+  min-height:430px;
+  margin:26px auto 55px;
+  max-width:1250px;
+  border-radius:28px!important;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(3,66,79,.96) 0%,rgba(0,111,124,.82) 48%,rgba(0,111,124,.18) 100%),
+    linear-gradient(135deg,#075a68,#15a8b6)!important;
+  box-shadow:0 22px 55px rgba(4,77,89,.20)!important;
+}
+.hero img,.section-hero img,.banner img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.hero>*:not(img),.section-hero>*:not(img),.banner>*:not(img){
+  position:relative;
+  z-index:2;
+}
+.hero>div,.section-hero>div,.banner>div{padding:65px!important;max-width:720px}
+.hero h1,.section-hero h1,.banner h1{
+  color:#fff!important;
+  font-size:clamp(2.4rem,5vw,4.5rem)!important;
+  line-height:1.03!important;
+  letter-spacing:-.045em;
+  margin:0 0 18px;
+}
+.hero h2,.section-hero h2,.banner h2{
+  color:#fff!important;
+  font-size:clamp(2rem,4vw,3.2rem)!important;
+}
+.hero p,.section-hero p,.banner p{color:rgba(255,255,255,.93)!important;font-size:1.08rem}
+
+/* ===== PORTAL SECTION HEADERS ===== */
+section{
+  max-width:1250px;
+  margin:0 auto;
+  padding:60px 24px;
+}
+section>h2:first-child{
+  font-size:2.25rem;
+  color:var(--navy);
+  letter-spacing:-.035em;
+  margin-bottom:10px;
+}
+section>h2:first-child:after{
+  content:"";
+  display:block;
+  width:54px;
+  height:4px;
+  border-radius:8px;
+  margin-top:12px;
+  background:linear-gradient(90deg,var(--teal),var(--cyan));
+}
+
+/* Alternating health blocks */
+section:nth-of-type(even){
+  max-width:none;
+  background:linear-gradient(180deg,#eef9fa,#f8fcfd);
+  padding-left:max(24px,calc((100vw - 1250px)/2 + 24px));
+  padding-right:max(24px,calc((100vw - 1250px)/2 + 24px));
+}
+
+/* ===== FEATURE CARDS ===== */
+.card,.feature-card,.emergency-card,.learn-card,.project-card,
+.panel,.content-card,.admin-card{
+  background:#fff!important;
+  border:1px solid var(--line)!important;
+  border-radius:18px!important;
+  box-shadow:var(--shadow)!important;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.card:hover,.feature-card:hover,.emergency-card:hover,.learn-card:hover,.project-card:hover{
+  transform:translateY(-6px);
+  border-color:#a6dce2!important;
+  box-shadow:0 20px 42px rgba(4,77,89,.14)!important;
+}
+
+/* ===== EMERGENCY AREA ===== */
+.emergency-card{
+  overflow:hidden;
+  border-top:4px solid var(--teal)!important;
+}
+.emergency-card h3{color:var(--navy)!important}
+.emergency-card .icon{
+  width:55px;height:55px;
+  display:grid;place-items:center;
+  border-radius:15px;
+  background:var(--sky);
+  color:var(--teal);
+}
+
+/* ===== SEARCH / FORMS ===== */
+input,textarea,select{
+  background:#fff!important;
+  color:var(--text)!important;
+  border:1px solid #cfe4e8!important;
+  border-radius:12px!important;
+  padding:12px 14px!important;
+}
+input:focus,textarea:focus,select:focus{
+  outline:0!important;
+  border-color:var(--cyan)!important;
+  box-shadow:0 0 0 4px rgba(22,185,199,.12)!important;
+}
+
+/* ===== BUTTONS ===== */
+button,.btn,.cta,.primary-btn{
+  border:0!important;
+  border-radius:12px!important;
+  padding:12px 19px!important;
+  background:linear-gradient(135deg,var(--navy),var(--teal))!important;
+  color:#fff!important;
+  font-weight:750!important;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,111,124,.18);
+  transition:.22s ease;
+}
+button:hover,.btn:hover,.cta:hover,.primary-btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(.97);
+}
+
+/* ===== HEALTH BADGES ===== */
+.badge,.tag,.chip{
+  background:#e4f7f8!important;
+  color:var(--navy)!important;
+  border:1px solid #c1e5e9!important;
+  border-radius:999px!important;
+  font-weight:700;
+}
+
+/* ===== VISUAL BANNERS ===== */
+.visual-banner,.info-banner{
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.visual-banner img,.info-banner img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  max-width:none!important;
+  background:linear-gradient(135deg,#03434f,#075f6c)!important;
+  color:#e9f8fa!important;
+  padding:45px 7%!important;
+  margin-top:35px;
+  border-top:5px solid var(--cyan);
+}
+footer a{color:#a8e8ec!important}
+
+/* ===== INTRO / MODAL ===== */
+.overlay{
+  background:rgba(2,39,47,.65)!important;
+  backdrop-filter:blur(8px);
+}
+.modal,.welcome{
+  border-radius:25px!important;
+  box-shadow:0 25px 80px rgba(0,0,0,.25)!important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero,.section-hero,.banner{
+    min-height:520px;
+    margin:14px 14px 35px;
+    border-radius:20px!important;
+  }
+  .hero>div,.section-hero>div,.banner>div{padding:35px!important}
+  section{padding:42px 18px}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.5rem!important}
+  section>h2:first-child{font-size:1.85rem}
+}
+
+
+/* ==========================================================
+   BIENVENIDA + INICIO — ESTILO PORTAL INSTITUCIONAL DE SALUD
+   Inspiración general de portales sanitarios; no replica una
+   identidad institucional específica.
+   ========================================================== */
+
+.section{display:none!important}
+.section.active{display:block!important}
+
+/* Welcome screen */
+.welcome-overlay{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(22,185,199,.25),transparent 28%),
+    radial-gradient(circle at 88% 82%,rgba(40,169,120,.18),transparent 30%),
+    linear-gradient(135deg,#003f4b 0%,#006b78 48%,#008f9d 100%);
+  overflow:auto;
+}
+.welcome-overlay.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.welcome-card{
+  width:min(1160px,96vw);
+  min-height:650px;
+  display:grid;
+  grid-template-columns:45% 55%;
+  overflow:hidden;
+  position:relative;
+  border-radius:30px!important;
+  background:#fff!important;
+  box-shadow:0 35px 100px rgba(0,36,43,.38)!important;
+  border:1px solid rgba(255,255,255,.35);
+}
+.welcome-card:before{
+  content:"";
+  position:absolute;
+  top:-100px;
+  right:-90px;
+  width:260px;height:260px;
+  border-radius:50%;
+  border:55px solid rgba(22,185,199,.08);
+  pointer-events:none;
+}
+.welcome-photo{
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#006b78,#16b9c7);
+}
+.welcome-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 1s ease;
+}
+.welcome-card:hover .welcome-photo img{transform:scale(1.035)}
+.welcome-shade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,67,79,.08),rgba(0,67,79,.72)),
+    linear-gradient(90deg,rgba(0,67,79,.12),rgba(0,67,79,.35));
+}
+.welcome-photo:after{
+  content:"PRIMEROS AUXILIOS";
+  position:absolute;
+  left:34px;
+  bottom:30px;
+  color:#fff;
+  font-size:.78rem;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+.welcome-cross{
+  position:absolute;
+  top:28px;
+  left:28px;
+  width:54px;height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  color:#fff;
+  font-size:25px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.4);
+  backdrop-filter:blur(10px);
+}
+.welcome-content{
+  padding:52px 58px 44px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(180deg,#fff 0%,#f8fcfd 100%);
+}
+.institution-line{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#55757d;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  font-weight:800;
+  margin-bottom:25px;
+}
+.institution-line b{
+  margin-left:auto;
+  color:#008c9b;
+  letter-spacing:.04em;
+}
+.mini-cross{
+  width:26px;height:26px;
+  display:grid;place-items:center;
+  border-radius:8px;
+  background:#e3f6f8;
+  color:#007482;
+  font-size:14px;
+}
+.welcome-content .tag{
+  align-self:flex-start;
+  margin-bottom:14px;
+}
+.welcome-content h1{
+  color:#064f5c;
+  font-size:clamp(2.4rem,4vw,4.2rem);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  margin:0 0 18px;
+}
+.welcome-content>p{
+  color:#5e7880;
+  max-width:570px;
+  font-size:1.02rem;
+  margin:0 0 25px;
+}
+.use-guide{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:4px 0 18px;
+}
+.use-guide>div{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 12px;
+  border:1px solid #e0eff1;
+  border-radius:13px;
+  background:#fff;
+}
+.use-guide b{
+  width:29px;height:29px;
+  display:grid;place-items:center;
+  flex:none;
+  border-radius:9px;
+  color:#fff;
+  background:linear-gradient(135deg,#007482,#16b9c7);
+}
+.use-guide span{
+  display:flex;
+  flex-direction:column;
+}
+.use-guide strong{font-size:.84rem;color:#1d4b55}
+.use-guide small{font-size:.70rem;color:#789098}
+.welcome-note{
+  border-left:4px solid #f0aa35;
+  background:#fff8e9;
+  color:#765c2b;
+  border-radius:0 10px 10px 0;
+  padding:10px 12px;
+  font-size:.78rem;
+  margin-bottom:20px;
+}
+.welcome-content .primary.big{
+  align-self:flex-start;
+  min-width:235px;
+  padding:14px 21px!important;
+  font-size:.98rem;
+}
+
+/* Home portal */
+#inicio{
+  background:
+    radial-gradient(circle at 92% 8%,rgba(22,185,199,.08),transparent 25%),
+    #fff;
+}
+#inicio .hero{
+  max-width:1250px;
+  min-height:485px;
+  margin:0 auto 40px;
+  border-radius:0 0 30px 30px!important;
+  display:grid;
+  grid-template-columns:53% 47%;
+  align-items:stretch;
+  overflow:hidden;
+  background:linear-gradient(115deg,#034f5d,#007a89)!important;
+  box-shadow:0 18px 45px rgba(4,77,89,.14)!important;
+}
+#inicio .hero-text{
+  padding:62px 45px 58px 62px!important;
+  max-width:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+  z-index:3;
+}
+#inicio .hero-text:before{
+  content:"";
+  position:absolute;
+  width:300px;height:300px;
+  right:-150px;bottom:-180px;
+  border-radius:50%;
+  border:55px solid rgba(255,255,255,.06);
+}
+#inicio .hero h1{
+  font-size:clamp(2.6rem,4.5vw,4.35rem)!important;
+  max-width:680px;
+}
+#inicio .hero h1 em{
+  font-style:normal;
+  color:#79e1e6;
+}
+#inicio .hero-text p{max-width:650px}
+#inicio .hero-image{
+  position:relative;
+  min-height:485px;
+  overflow:hidden;
+}
+#inicio .hero-image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+#inicio .hero-image:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#034f5d 0%,rgba(3,79,93,.34) 25%,rgba(3,79,93,.05) 100%);
+  z-index:2;
+}
+.image-badge{
+  position:absolute;
+  z-index:4;
+  right:24px;
+  bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:14px;
+  color:#fff;
+  background:rgba(3,67,79,.72);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(12px);
+}
+.image-badge strong{color:#8ee9ed}
+.home-highlights{
+  display:flex;
+  gap:10px;
+  margin-top:24px;
+  position:relative;
+  z-index:2;
+}
+.home-highlights>div{
+  display:flex;
+  flex-direction:column;
+  min-width:145px;
+  padding:11px 12px;
+  border-radius:13px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.16);
+}
+.home-highlights span{
+  color:#8ce5e9;
+  font-weight:900;
+}
+.home-highlights b{font-size:.8rem;color:#fff}
+.home-highlights small{font-size:.68rem;color:rgba(255,255,255,.72)}
+
+.quick-access{
+  max-width:1120px;
+  margin:0 auto 55px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr 1fr;
+  gap:12px;
+  background:#fff;
+  border:1px solid #d9ecef;
+  border-radius:20px;
+  box-shadow:0 15px 38px rgba(4,77,89,.08);
+}
+.quick-title{
+  padding:9px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.quick-title h2{
+  margin:6px 0 0;
+  color:#075a68;
+  font-size:1.25rem;
+}
+.quick-access button{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  column-gap:10px;
+  align-items:center;
+  text-align:left;
+  background:#f5fbfc!important;
+  color:#173f49!important;
+  border:1px solid #dceff1!important;
+  box-shadow:none!important;
+}
+.quick-access button:hover{
+  background:#e8f8fa!important;
+  border-color:#9edbe1!important;
+}
+.quick-access button>span{
+  grid-row:1 / span 2;
+  font-size:1.45rem;
+}
+.quick-access button b{font-size:.82rem}
+.quick-access button small{font-size:.69rem;color:#718990}
+
+/* Feature cards */
+#inicio .section-head{
+  max-width:1120px;
+  margin:0 auto 22px;
+}
+#inicio .section-head h2{color:#075a68;font-size:2rem;margin:8px 0}
+#inicio .feature-row{
+  max-width:1120px;
+  margin:0 auto 48px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+#inicio .feature{
+  overflow:hidden;
+  border:1px solid #dceff1;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 9px 26px rgba(4,77,89,.07);
+  transition:.25s ease;
+}
+#inicio .feature:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 38px rgba(4,77,89,.12);
+}
+#inicio .feature-photo{
+  height:145px;
+  overflow:hidden;
+}
+#inicio .feature-photo img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .45s ease;
+}
+#inicio .feature:hover .feature-photo img{transform:scale(1.05)}
+#inicio .feature-body{padding:15px 16px 18px}
+#inicio .feature-body b{
+  display:block;color:#075a68;margin-bottom:4px
+}
+#inicio .feature-body span{font-size:.78rem;color:#687f86}
+
+#inicio .callout{
+  max-width:1120px;
+  margin:0 auto;
+  padding:22px 25px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#eaf8fa,#f7fcfd);
+  border:1px solid #cde8eb;
+}
+.callout-icon{
+  width:48px;height:48px;
+  flex:none;
+  display:grid;place-items:center;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 6px 18px rgba(4,77,89,.08);
+}
+#inicio .callout h3{margin:0 0 4px;color:#075a68}
+#inicio .callout p{margin:0;color:#607b83;font-size:.83rem}
+#inicio .callout .secondary{margin-left:auto;white-space:nowrap}
+
+@media(max-width:900px){
+  .welcome-card{grid-template-columns:1fr;min-height:auto}
+  .welcome-photo{min-height:250px;max-height:300px}
+  .welcome-content{padding:35px 28px}
+  #inicio .hero{grid-template-columns:1fr;min-height:auto;border-radius:0 0 22px 22px!important}
+  #inicio .hero-image{min-height:310px;order:-1}
+  #inicio .hero-text{padding:40px 28px!important}
+  .quick-access{grid-template-columns:1fr 1fr}
+  .quick-title{grid-column:1/-1}
+  #inicio .feature-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .welcome-overlay{padding:10px}
+  .welcome-card{border-radius:20px!important}
+  .welcome-photo{min-height:210px}
+  .welcome-content h1{font-size:2.25rem}
+  .use-guide{grid-template-columns:1fr}
+  .home-highlights{display:grid;grid-template-columns:1fr}
+  #inicio .hero-image{min-height:245px}
+  #inicio .hero h1{font-size:2.55rem!important}
+  .quick-access{grid-template-columns:1fr}
+  .quick-title{grid-column:auto}
+  #inicio .feature-row{grid-template-columns:1fr}
+  #inicio .callout{align-items:flex-start;flex-wrap:wrap}
+  #inicio .callout .secondary{margin-left:0}
+}
+
+</style>
+
+<meta name="theme-color" content="#006b78">
+<meta name="description" content="Plataforma digital de primeros auxilios con diseño institucional de salud.">
+
+
+<style>
+img{background:linear-gradient(135deg,#e8f8fa,#cceff2)}
+img[alt]{font-family:Arial,sans-serif}
+</style>
+
+<style id='final-visible-sections'>
+/* ====== FINAL PORTAL LAYOUT: ALL CONTENT VISIBLE ====== */
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{overflow-x:hidden}
+.section{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:relative !important;
+  min-height:0 !important;
+  padding-bottom:76px !important;
+  scroll-margin-top:88px;
+}
+.section + .section{
+  border-top:1px solid #e0eff1;
+}
+#inicio{padding-top:0!important}
+#emergencias,#aprende,#proyecto,#admin{
+  padding-top:54px!important;
+}
+#nav{
+  position:sticky!important;
+  top:0!important;
+  z-index:2000!important;
+}
+.portal-section-label{
+  max-width:1160px;
+  margin:0 auto 14px;
+  padding:0 4px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#6b858c;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+.portal-section-label:before{
+  content:"";
+  width:28px;height:3px;border-radius:8px;
+  background:linear-gradient(90deg,#008c9b,#18b9c7);
+}
+@media(max-width:600px){
+  .section{padding-left:14px!important;padding-right:14px!important}
+  #emergencias,#aprende,#proyecto,#admin{padding-top:40px!important}
+}
+.brand-subtitle{font-size:.9rem;color:#e9fbfd;margin-top:4px;font-weight:650}
+</style>
+</head>
+<body>
+
+<div id="welcome" class="welcome-overlay">
+  <div class="welcome-card">
+    <div class="welcome-photo">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=85" alt="Personal de salud">
+      <div class="welcome-shade"></div>
+      <div class="welcome-cross">✚</div>
+    </div>
+    <div class="welcome-content">
+      <div class="institution-line"><span class="mini-cross">✚</span><span>PLATAFORMA EDUCATIVA DE SALUD</span><b>2026</b></div>
+      <span class="tag">BIENVENIDO/A</span>
+      <h1>AUXISALUD</h1><div class="brand-subtitle">Plataforma digital de primeros auxilios</div>
+      <p>Una herramienta digital educativa para consultar información de forma rápida, sencilla e interactiva.</p>
+      <div class="use-guide">
+        <div><b>1</b><span><strong>Explora</strong><small>Usa el menú horizontal.</small></span></div>
+        <div><b>2</b><span><strong>Selecciona</strong><small>Elige una emergencia.</small></span></div>
+        <div><b>3</b><span><strong>Aprende</strong><small>Revisa los contenidos.</small></span></div>
+        <div><b>4</b><span><strong>Actualiza</strong><small>Agrega nuevos temas.</small></span></div>
+      </div>
+      <div class="welcome-note">⚠️ Uso educativo. En una emergencia real, solicita atención profesional.</div>
+      <button class="primary big" onclick="enterSite()">Comenzar a explorar →</button>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="#inicio">
+    <div class="logo">✚</div>
+    <div><strong>AUXISALUD</strong><span>Plataforma educativa digital</span></div>
+  </a>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <nav id="nav" aria-label="Navegación principal">
+  <a href="#inicio">Inicio</a>
+  <a href="#emergencias">Emergencias</a>
+  <a href="#aprende">Aprende</a>
+  <a href="#proyecto">Proyecto</a>
+  <a href="#admin">Administrar</a>
+</nav>
+</header>
+
+<div class="ticker"><span>●</span> AUXISALUD · Aprende de manera clara, visual e interactiva.</div>
+
+<main>
+<section id="inicio" class="section active">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="tag">PLATAFORMA EDUCATIVA · 2026</span>
+      <h1>Primeros auxilios, <em>aprende antes de necesitarlo.</em></h1>
+      <p>Explora contenidos organizados, visuales e interactivos para reforzar tus conocimientos sobre primeros auxilios.</p>
+      <div class="actions">
+        <button class="primary" onclick="location.hash='emergencias'">🚑 Explorar emergencias</button>
+        <button class="secondary" onclick="location.hash='aprende'">📚 Quiero aprender</button>
+      </div>
+      <div class="home-highlights">
+        <div><span>✓</span><b>Información clara</b><small>Contenido organizado</small></div>
+        <div><span>✓</span><b>Consulta rápida</b><small>Acceso sencillo</small></div>
+        <div><span>✓</span><b>Aprendizaje visual</b><small>Diseño interactivo</small></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&q=85" alt="Atención y primeros auxilios">
+      <div class="image-badge">❤️ <span>Información<br><strong>para actuar</strong></span></div>
+    </div>
+  </div>
+
+  <div class="quick-access">
+    <div class="quick-title"><span class="tag">ACCESO RÁPIDO</span><h2>¿Qué deseas consultar?</h2></div>
+    <button onclick="location.hash='emergencias'"><span>🚑</span><b>Emergencias</b><small>Consulta categorías</small></button>
+    <button onclick="location.hash='aprende'"><span>📚</span><b>Aprende</b><small>Material educativo</small></button>
+    <button onclick="location.hash='proyecto'"><span>📋</span><b>Proyecto</b><small>Conoce la propuesta</small></button>
+  </div>
+  <div class="section-head center">
+    <span class="tag">EXPLORA LA PLATAFORMA</span>
+    <h2>Todo organizado de forma visual</h2>
+  </div>
+  <div class="feature-row">
+    <article class="feature"><div class="feature-photo"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=700&q=80" alt="Salud"></div><div class="feature-body"><b>Acceso rápido</b><span>Encuentra información con pocos clics.</span></div></article>
+    <article class="feature"><div class="feature-photo"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="Profesional de salud"></div><div class="feature-body"><b>Interactividad</b><span>Selecciona tarjetas y descubre contenidos.</span></div></article>
+    <article class="feature"><div class="feature-photo"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Tecnología"></div><div class="feature-body"><b>Multidispositivo</b><span>Diseñada para PC, tablet y celular.</span></div></article>
+    <article class="feature"><div class="feature-photo"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=700&q=80" alt="Material médico"></div><div class="feature-body"><b>Actualizable</b><span>La plataforma puede crecer con el proyecto.</span></div></article>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div><h3>Una plataforma que crecerá contigo</h3><p>Podremos incorporar nuevos procedimientos, imágenes, videos, cuestionarios, encuestas y resultados conforme avances con tu documento.</p></div>
+    <button class="secondary" onclick="location.hash='admin'">Administrar →</button>
+  </div>
+</section>
+
+<section id="emergencias" class="section">
+  <div class="portal-section-label">EMERGENCIAS Y PRIMEROS AUXILIOS</div>
+  <div class="banner-section">
+    <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=1600&q=85" alt="Atención de emergencia">
+    <div><span class="tag">CONSULTA RÁPIDA</span><h2>Selecciona una emergencia</h2><p>Elige una tarjeta para consultar su información educativa.</p></div>
+  </div>
+  <div class="searchbar"><span>⌕</span><input id="search" oninput="filterEmergencies()" placeholder="Buscar RCP, hemorragias, fracturas..." autocomplete="off"></div>
+  <div id="emergencyGrid" class="grid"></div>
+  <div id="emptySearch" class="empty hidden">No encontramos esa categoría. Puedes agregarla desde <button onclick="location.hash='admin'">Administrar contenido</button>.</div>
+  <div id="detail" class="detail hidden"></div>
+</section>
+
+<section id="aprende" class="section">
+  <div class="portal-section-label">APRENDE Y REFUERZA TUS CONOCIMIENTOS</div>
+  <div class="banner-section">
+    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1600&q=85" alt="Educación en salud">
+    <div><span class="tag">APRENDIZAJE</span><h2>Aprende paso a paso</h2><p>Material visual preparado para ampliar el proyecto.</p></div>
+  </div>
+  <div class="learning-row">
+    <article class="info-card interactive-card" onclick="openLearning('conceptos')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80" alt="Conceptos de salud"></div><div><span>🧠</span><h3>Conceptos básicos</h3><p>Definiciones relacionadas con primeros auxilios.</p><b>Explorar →</b></div></article>
+    <article class="info-card interactive-card" onclick="openLearning('pasos')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=700&q=80" alt="Material médico"></div><div><span>📝</span><h3>Pasos básicos</h3><p>Procedimientos organizados de manera sencilla.</p><b>Explorar →</b></div></article>
+    <article class="info-card interactive-card" onclick="openLearning('visual')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=700&q=80" alt="Material educativo"></div><div><span>🖼️</span><h3>Material visual</h3><p>Espacio para imágenes e infografías.</p><b>Preparado para añadir →</b></div></article>
+    <article class="info-card interactive-card" onclick="openLearning('quiz')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=700&q=80" alt="Cuestionario"></div><div><span>❓</span><h3>Quiz educativo</h3><p>Espacio para evaluar conocimientos.</p><b>Probar →</b></div></article>
+  </div>
+  <div id="learningPanel" class="learning-panel hidden"></div>
+  <div class="notice"><strong>Importante:</strong> Esta plataforma tiene finalidad educativa. Ante una emergencia real, busca atención de profesionales de salud.</div>
+</section>
+
+<section id="proyecto" class="section">
+  <div class="portal-section-label">INFORMACIÓN DEL PROYECTO</div>
+  <div class="project-banner">
+    <div><span class="tag">SOBRE EL PROYECTO</span><h2>Plataforma digital de primeros auxilios</h2><p>Información inicial basada en el documento del proyecto.</p></div>
+    <img src="https://images.unsplash.com/photo-1580281658628-4f7b7e3c3f2d?auto=format&fit=crop&w=1100&q=85" alt="Equipo de salud">
+  </div>
+  <div class="project-grid">
+    <article><span class="mini-icon">🔎</span><h3>Problema identificado</h3><p>Muchas personas no saben cómo actuar correctamente ante una emergencia o accidente y la información sobre primeros auxilios no siempre es fácil de encontrar o entender.</p></article>
+    <article><span class="mini-icon">🌱</span><h3>Justificación</h3><p>La plataforma busca facilitar el acceso a contenidos educativos sobre primeros auxilios y favorecer el reforzamiento de conocimientos.</p></article>
+    <article><span class="mini-icon">🎯</span><h3>Objetivo general</h3><p>Desarrollar una plataforma digital sobre primeros auxilios que brinde información clara y fácil de entender para ayudar a los usuarios ante diferentes situaciones de emergencia.</p></article>
+    <article><span class="mini-icon">📌</span><h3>Objetivos específicos</h3><ul><li>Recopilar información básica y confiable.</li><li>Diseñar una plataforma sencilla.</li><li>Incluir diferentes tipos de emergencias.</li><li>Facilitar el acceso desde dispositivos con internet.</li><li>Promover el aprendizaje.</li></ul></article>
+    <article><span class="mini-icon">👥</span><h3>Beneficiarios</h3><p>Pacientes, familiares y personal de los centros de salud.</p></article>
+    <article><span class="mini-icon">🗺️</span><h3>Alcance</h3><p>Información básica, recomendaciones y pasos sencillos ante situaciones comunes de emergencia.</p></article>
+  </div>
+</section>
+
+<section id="admin" class="section">
+  <div class="portal-section-label">GESTIÓN Y AMPLIACIÓN DE CONTENIDOS</div>
+  <div class="admin-banner"><span class="tag">MODO EDICIÓN</span><h2>Haz crecer la plataforma</h2><p>Agrega nuevas categorías y después podremos conectar esta sección a una base de datos para guardarlas permanentemente.</p></div>
+  <div class="admin-layout">
+    <div class="admin-box">
+      <form id="addForm">
+        <label>Nombre de la emergencia<input id="name" required placeholder="Ej. Desmayo"></label>
+        <label>Ícono<input id="icon" value="🚑" maxlength="4"></label>
+        <label>Descripción<textarea id="description" required placeholder="Descripción breve"></textarea></label>
+        <label>Pasos básicos (uno por línea)<textarea id="steps" required placeholder="Paso 1&#10;Paso 2&#10;Paso 3"></textarea></label>
+        <button class="primary" type="submit">＋ Agregar a la plataforma</button>
+      </form>
+    </div>
+    <div class="admin-side">
+      <div class="version"><span>VERSIÓN</span><strong>1.2</strong><small>Diseño horizontal + visual</small></div>
+      <h3>Próximas mejoras</h3>
+      <div class="todo">🖼️ Galería de imágenes</div><div class="todo">🎥 Videos educativos</div><div class="todo">📝 Encuestas y validación</div><div class="todo">📊 Resultados del proyecto</div><div class="todo">🔐 Panel de administración permanente</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div><strong>AUXISALUD · Plataforma Digital de Primeros Auxilios</strong><br><small>Innovación II · Enfermería Técnica · Huánuco · 2026</small></div><button onclick="showSection('inicio')">Volver arriba ↑</button></footer>
+<script src="script.js"></script>
+
+
+
+</body>
+</html>
