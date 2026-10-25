@@ -816,6 +816,21 @@ body{overflow-x:hidden}
 .service-catalog-grid{max-width:1160px;margin:0 auto 48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.service-offer{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:21px;border-radius:18px;border:1px solid #d9ecef;background:#fff;box-shadow:0 9px 24px rgba(4,77,89,.055);transition:transform .2s ease,box-shadow .2s ease}.service-offer:hover{transform:translateY(-3px);box-shadow:0 15px 32px rgba(4,77,89,.1)}.service-offer-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#e8f8fa;font-size:1.55rem;margin-bottom:13px}.service-category{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:#008c9b;font-weight:850}.service-offer h4{font-size:1.05rem;color:#075a68;margin:7px 0}.service-offer p{font-size:.83rem;color:#637c83;margin:0 0 14px;flex:1;line-height:1.55}.service-price-line{width:100%;border-top:1px solid #e2eff1;padding-top:13px;margin-top:auto;display:flex;align-items:baseline;gap:8px}.service-price-line strong{font-size:1.6rem;color:#075a68}.service-price-line small{font-size:.77rem;color:#72868c}.service-offer button,.service-package button{margin-top:13px!important;width:100%;font-size:.82rem!important;padding:11px 12px!important}.package-head{margin-top:12px}.service-packages{max-width:1160px;margin:0 auto 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.service-package{padding:24px;border-radius:20px;border:1px solid #d9ecef;background:#fff;box-shadow:0 10px 28px rgba(4,77,89,.06);display:flex;flex-direction:column}.featured-package{border-color:#85d3da;background:linear-gradient(180deg,#f1fbfc,#fff)}.package-top{display:flex;align-items:center;justify-content:space-between}.package-top>span:first-child{font-size:1.3rem;font-weight:900;color:#008c9b}.package-label{font-size:.67rem;letter-spacing:.11em;font-weight:850;border-radius:99px;padding:6px 9px;background:#e5f7f9;color:#087987}.service-package h4{color:#075a68;font-size:1.22rem;margin:12px 0 5px}.service-package p{color:#667e84;font-size:.86rem;margin:0 0 9px}.service-package ul{padding-left:19px;color:#47666e;font-size:.84rem;display:grid;gap:6px;margin:9px 0 18px}.package-price{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid #d9ecef}.package-price strong{font-size:1.9rem;color:#075a68}.package-price small{color:#71858c;font-size:.8rem}.service-legal-note{max-width:1160px;margin:0 auto 28px;padding:15px 17px;border-left:4px solid #008c9b;background:#eef9fa;color:#42656d;border-radius:0 12px 12px 0;font-size:.82rem;line-height:1.55}
 @media(max-width:900px){#servicios .service-catalog-hero{grid-template-columns:1fr;padding:27px 24px}.service-catalog-art{min-height:135px}.service-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-packages{grid-template-columns:1fr}}
 @media(max-width:600px){#servicios .service-catalog-hero{padding:23px 18px}.service-catalog-grid{grid-template-columns:1fr}.service-section-head h3{font-size:1.5rem}.service-offer{padding:19px}.service-price-note{font-size:.8rem}}
+/* ===== CONTACTO DIRECTO AUXISALUD ===== */
+.auxi-contact-panel{max-width:1160px;margin:0 auto 32px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap;background:linear-gradient(135deg,#eaf9f9,#f8fcfd);border:1px solid #cce9ec;border-radius:20px}
+.auxi-contact-panel h3{margin:5px 0 7px;color:#075a68;font-size:1.3rem}
+.auxi-contact-panel p{margin:0 0 7px;color:#54727a;font-size:.9rem}
+.auxi-contact-number{font-size:1.15rem;font-weight:850;letter-spacing:.03em;color:#075a68}
+.auxi-contact-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.auxi-contact-actions a,.auxi-whatsapp-submit{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:12px;font-weight:800;text-decoration:none}
+.auxi-wa,.auxi-whatsapp-submit{background:#168b58;color:#fff!important;box-shadow:0 7px 18px rgba(22,139,88,.18)}
+.auxi-phone{background:#fff;color:#075a68!important;border:1px solid #b8dfe3}
+.auxi-whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:3000;display:flex;align-items:center;gap:9px;background:#168b58;color:#fff!important;padding:13px 17px;border-radius:999px;font-size:.9rem;font-weight:850;box-shadow:0 12px 28px rgba(0,0,0,.22);text-decoration:none}
+.auxi-whatsapp-float:hover,.auxi-contact-actions a:hover,.auxi-whatsapp-submit:hover{filter:brightness(.96);transform:translateY(-2px)}
+.auxi-contact-panel .service-kicker{display:inline-block}
+.auxi-request-link{display:inline-flex;margin-top:10px}
+@media(max-width:600px){.auxi-contact-panel{padding:19px}.auxi-contact-actions{width:100%}.auxi-contact-actions a{flex:1}.auxi-whatsapp-float{right:12px;bottom:12px;padding:12px 14px;font-size:.82rem}}
+
 </style>
 
 </head>
@@ -846,22 +861,24 @@ body{overflow-x:hidden}
 </div>
 
 <header class="topbar">
-  <a class="brand" href="#inicio">
+  <a class="brand" href="#inicio" onclick="showSection('inicio');return false;">
     <div class="logo">✚</div>
     <div><strong>AUXISALUD</strong><span>Plataforma educativa digital</span></div>
   </a>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
   <nav id="nav" aria-label="Navegación principal">
-  <a href="#inicio">Inicio</a>
-  <a href="#emergencias">Emergencias</a>
-  <a href="#aprende">Aprende</a>
-  <a href="#servicios">Servicios a domicilio</a>
-  <a href="#proyecto">Proyecto</a>
-  <a href="#admin">Administrar</a>
+  <a href="#inicio" onclick="showSection('inicio');return false;">Inicio</a>
+  <a href="#emergencias" onclick="showSection('emergencias');return false;">Emergencias</a>
+  <a href="#aprende" onclick="showSection('aprende');return false;">Aprende</a>
+  <a href="#servicios" onclick="showSection('servicios');return false;">Servicios a domicilio</a>
+  <a href="#proyecto" onclick="showSection('proyecto');return false;">Proyecto</a>
+  <a href="#admin" onclick="showSection('admin');return false;">Administrar</a>
+  <a href="#contacto-auxi" onclick="showSection('servicios');setTimeout(()=>document.getElementById('contacto-auxi').scrollIntoView({behavior:'smooth',block:'center'}),100);return false;">Contacto</a>
 </nav>
 </header>
 
 <div class="ticker"><span>●</span> AUXISALUD · Aprende de manera clara, visual e interactiva.</div>
+<a class="auxi-whatsapp-float" href="https://wa.me/51918824414?text=Hola%20AUXISALUD%2C%20quisiera%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Contactar a AUXISALUD por WhatsApp">☏ WhatsApp · 918 824 414</a>
 
 <main>
 <section id="inicio" class="section active">
@@ -871,8 +888,8 @@ body{overflow-x:hidden}
       <h1>Primeros auxilios, <em>aprende antes de necesitarlo.</em></h1>
       <p>Explora contenidos organizados, visuales e interactivos para reforzar tus conocimientos sobre primeros auxilios.</p>
       <div class="actions">
-        <button class="primary" onclick="location.hash='emergencias'">🚑 Explorar emergencias</button>
-        <button class="secondary" onclick="location.hash='aprende'">📚 Quiero aprender</button>
+        <button class="primary" onclick="showSection('emergencias')">🚑 Explorar emergencias</button>
+        <button class="secondary" onclick="showSection('aprende')">📚 Quiero aprender</button>
       </div>
       <div class="home-highlights">
         <div><span>✓</span><b>Información clara</b><small>Contenido organizado</small></div>
@@ -888,8 +905,8 @@ body{overflow-x:hidden}
 
   <div class="quick-access">
     <div class="quick-title"><span class="tag">ACCESO RÁPIDO</span><h2>¿Qué deseas consultar?</h2></div>
-    <button onclick="location.hash='emergencias'"><span>🚑</span><b>Emergencias</b><small>Consulta categorías</small></button>
-    <button onclick="location.hash='aprende'"><span>📚</span><b>Aprende</b><small>Material educativo</small></button>
+    <button onclick="showSection('emergencias')"><span>🚑</span><b>Emergencias</b><small>Consulta categorías</small></button>
+    <button onclick="showSection('aprende')"><span>📚</span><b>Aprende</b><small>Material educativo</small></button>
     <button onclick="location.hash='proyecto'"><span>📋</span><b>Proyecto</b><small>Conoce la propuesta</small></button>
   </div>
   <div class="section-head center">
@@ -967,6 +984,19 @@ body{overflow-x:hidden}
     <div class="service-catalog-art" aria-hidden="true"><div class="service-art-circle">✚</div><strong>Cuidado cerca de ti</strong><small>La cita se confirma después de revisar disponibilidad y condiciones.</small></div>
   </div>
 
+  <div class="auxi-contact-panel" id="contacto-auxi">
+    <div>
+      <span class="service-kicker">CONTACTO DIRECTO</span>
+      <h3>¿Tienes consultas o deseas coordinar una solicitud?</h3>
+      <p>Escríbenos para consultar disponibilidad, cobertura y condiciones antes de confirmar una cita.</p>
+      <div class="auxi-contact-number">918 824 414</div>
+    </div>
+    <div class="auxi-contact-actions">
+      <a class="auxi-wa" href="https://wa.me/51918824414?text=Hola%20AUXISALUD%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">☏ Contactar por WhatsApp</a>
+      <a class="auxi-phone" href="tel:+51918824414">Llamar</a>
+    </div>
+  </div>
+
   <div class="service-price-note"><span>ℹ️</span><p><strong>Sobre los precios:</strong> son tarifas piloto propuestas para el prototipo académico, no cotizaciones definitivas ni tarifas validadas en Huánuco. Deben revisarse con un costeo real y pueden variar por distrito, traslado, duración, materiales y evaluación del caso. Los medicamentos no están incluidos. Los procedimientos clínicos solo se coordinarán con la indicación correspondiente y personal legalmente habilitado.</p></div>
 
   <div class="service-section-head"><div><span class="service-kicker">CATÁLOGO</span><h3>Servicios individuales</h3><p>Selecciona una opción para revisar su tarifa de referencia y solicitar información.</p></div></div>
@@ -1041,7 +1071,7 @@ body{overflow-x:hidden}
 </section>
 </main>
 
-<footer><div><strong>AUXISALUD · Plataforma Digital de Primeros Auxilios</strong><br><small>Innovación II · Enfermería Técnica · Huánuco · 2026</small></div><button onclick="showSection('inicio')">Volver arriba ↑</button></footer>
+<footer><div><strong>AUXISALUD · Plataforma Digital de Primeros Auxilios</strong><br><small>Innovación II · Enfermería Técnica · Huánuco · 2026</small><br><br><strong>Contacto:</strong> <a href="https://wa.me/51918824414?text=Hola%20AUXISALUD%2C%20quisiera%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">WhatsApp 918 824 414</a> · <a href="tel:+51918824414">Llamar al 918 824 414</a></div><button onclick="showSection('inicio')">Volver arriba ↑</button></footer>
 <script src="script.js"></script>
 
 
@@ -1060,7 +1090,27 @@ function submitVisitRequest(event) {
   const form = document.getElementById("visitRequestForm");
   const status = document.getElementById("visitRequestStatus");
   if (!form || !status) return;
-  status.textContent = "La demostración del formulario funciona, pero esta solicitud todavía no se envía ni se guarda. La tarifa mostrada es referencial y no confirma una cita. Antes de recibir solicitudes reales, AUXISALUD debe habilitar un canal seguro de contacto y confirmar cobertura, costos, requisitos y responsable de cada servicio. No compartas aquí información clínica sensible.";
+  const data = new FormData(form);
+  const message = [
+    "Hola, AUXISALUD. Quisiera consultar por una solicitud de servicio.",
+    "Nombre: " + (data.get("requester") || ""),
+    "Teléfono de contacto: " + (data.get("phone") || ""),
+    "Distrito: " + (data.get("district") || ""),
+    "Fecha preferida: " + (data.get("date") || ""),
+    "Horario preferido: " + (data.get("time") || ""),
+    "Servicio o paquete: " + (data.get("need") || ""),
+    data.get("comment") ? "Comentario: " + data.get("comment") : ""
+  ].filter(Boolean).join("\n");
+  const whatsappUrl = "https://wa.me/51918824414?text=" + encodeURIComponent(message);
+  status.textContent = "Tu mensaje está preparado. La solicitud aún no es una cita confirmada: revisa el texto y pulsa el botón para abrir WhatsApp y enviarlo. No incluyas diagnósticos ni información clínica sensible. ";
+  const link = document.createElement("a");
+  link.className = "auxi-whatsapp-submit auxi-request-link";
+  link.href = whatsappUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Abrir WhatsApp y enviar solicitud";
+  status.appendChild(document.createElement("br"));
+  status.appendChild(link);
   status.classList.add("is-visible");
 }
 </script>
