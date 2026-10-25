@@ -734,6 +734,79 @@ body{overflow-x:hidden}
 }
 .brand-subtitle{font-size:.9rem;color:#e9fbfd;margin-top:4px;font-weight:650}
 </style>
+
+<style id="home-visit-service-style">
+/* AUXISALUD: tarjeta de visita domiciliaria */
+#servicios .home-visit-banner{
+  max-width:1160px;margin:0 auto 26px;padding:34px 38px;border-radius:24px;
+  display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.8fr);gap:24px;align-items:center;
+  color:#fff;background:linear-gradient(120deg,#064d5b,#008c9b 72%,#16b9c7);
+  box-shadow:0 16px 38px rgba(4,77,89,.13);
+}
+#servicios .home-visit-banner .tag{background:rgba(255,255,255,.14)!important;color:#e9feff!important;border-color:rgba(255,255,255,.22)!important}
+#servicios .home-visit-banner h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;color:#fff;margin:12px 0}
+#servicios .home-visit-banner p{max-width:700px;color:#e4f8fa;margin:0}
+.home-visit-banner-mark{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:180px;border:1px solid rgba(255,255,255,.23);border-radius:20px;background:rgba(255,255,255,.10);padding:20px}
+.home-visit-banner-mark span{font-size:4rem;line-height:1;color:#fff}
+.home-visit-banner-mark strong{font-size:1.15rem;margin-top:10px}
+.home-visit-banner-mark small{font-size:.78rem;color:#dcf6f8;margin-top:5px}
+.home-visit-layout{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.8fr);gap:20px;align-items:start}
+.home-visit-card,.visit-side-panel,.visit-request-panel{border:1px solid #d9ecef;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 35px rgba(4,77,89,.08)}
+.home-visit-photo{height:230px;position:relative;overflow:hidden;background:#e8f8fa}
+.home-visit-photo img{width:100%;height:100%;object-fit:cover}
+.home-visit-photo-label{position:absolute;left:18px;bottom:16px;background:rgba(4,77,89,.86);color:white;padding:7px 11px;border-radius:8px;font-size:.72rem;font-weight:800;letter-spacing:.08em}
+.home-visit-content{padding:26px}
+.home-visit-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.home-visit-kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#008c9b}
+.home-visit-content h3,.visit-request-panel h3{color:#075a68;font-size:1.55rem;margin:4px 0 12px}
+.home-visit-content p{color:#607b83}
+.home-visit-price{white-space:nowrap;padding:8px 11px;border:1px solid #cce8eb;border-radius:999px;background:#effafb;color:#075a68;font-weight:800;font-size:.82rem}
+.home-visit-content h4{font-size:1rem;color:#174b55;margin:24px 0 10px}
+.home-visit-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.home-visit-list li{display:flex;gap:10px;align-items:flex-start;color:#4e6e76;font-size:.9rem}
+.home-visit-list li span{flex:none;display:inline-grid;place-items:center;width:23px;height:23px;border-radius:7px;background:#e8f8fa;color:#008494;font-weight:900;font-size:.77rem}
+.home-visit-list.requirements li span{background:#f4f7f8;color:#56747b}
+.home-visit-notice{margin-top:23px;padding:14px 15px;border-left:4px solid #e7a43b;border-radius:0 12px 12px 0;background:#fff8eb;color:#745c30;font-size:.82rem}
+.home-visit-cta{margin-top:20px!important;display:flex;justify-content:center;align-items:center;gap:14px;width:100%;padding:14px 18px!important}
+.visit-side-panel{padding:25px;position:sticky;top:100px}
+.visit-side-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:#e7f8fa;font-size:1.6rem}
+.visit-side-panel h3{color:#075a68;margin:14px 0 10px}
+.visit-side-panel ol{padding-left:21px;margin:0;display:grid;gap:17px}
+.visit-side-panel li{color:#087987;padding-left:3px}
+.visit-side-panel li b{display:block;color:#204e57;font-size:.9rem}
+.visit-side-panel li small{display:block;color:#728990;font-size:.8rem;margin-top:3px}
+.visit-side-footer{display:flex;align-items:flex-start;gap:11px;border-top:1px solid #e0eff1;margin-top:24px;padding-top:18px}
+.visit-side-footer>span{font-size:1.45rem}
+.visit-side-footer b,.visit-side-footer small{display:block}
+.visit-side-footer b{font-size:.85rem;color:#075a68}
+.visit-side-footer small{font-size:.77rem;color:#71878e;margin-top:3px}
+.visit-request-panel{max-width:1160px;margin:24px auto 0;padding:28px}
+.visit-request-panel.hidden{display:none}
+.visit-form-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px}
+.visit-form-heading h3{margin-bottom:4px}
+.visit-form-heading p{margin-top:0;color:#627b82;font-size:.9rem}
+.visit-close{border:1px solid #d9ecef!important;background:#f5fbfc!important;color:#075a68!important;box-shadow:none!important;width:40px;height:40px;padding:0!important;font-size:1.5rem}
+.visit-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#visitRequestForm{display:grid;gap:14px}
+#visitRequestForm label{display:grid;gap:6px;color:#244f58;font-size:.85rem;font-weight:750}
+#visitRequestForm input:not([type=checkbox]),#visitRequestForm textarea,#visitRequestForm select{width:100%;border:1px solid #cfe4e8;border-radius:10px;padding:12px 13px;background:#fff}
+#visitRequestForm input[type=checkbox]{width:18px;height:18px;accent-color:#008c9b}
+#visitRequestForm .visit-consent{display:flex;align-items:flex-start;gap:9px;font-weight:600;line-height:1.4}
+.visit-request-status{display:none;margin-top:18px;padding:15px;border-radius:12px;background:#eaf8fa;color:#075a68;font-size:.9rem}
+.visit-request-status.is-visible{display:block}
+@media(max-width:850px){
+ #servicios .home-visit-banner,.home-visit-layout{grid-template-columns:1fr}
+ .home-visit-banner-mark{min-height:140px}
+ .visit-side-panel{position:static}
+}
+@media(max-width:600px){
+ #servicios .home-visit-banner{padding:25px 20px}
+ .home-visit-content,.visit-side-panel,.visit-request-panel{padding:20px}
+ .home-visit-photo{height:185px}
+ .visit-form-grid{grid-template-columns:1fr}
+}
+</style>
+
 </head>
 <body>
 
@@ -771,6 +844,7 @@ body{overflow-x:hidden}
   <a href="#inicio">Inicio</a>
   <a href="#emergencias">Emergencias</a>
   <a href="#aprende">Aprende</a>
+  <a href="#servicios">Servicios a domicilio</a>
   <a href="#proyecto">Proyecto</a>
   <a href="#admin">Administrar</a>
 </nav>
@@ -869,6 +943,107 @@ body{overflow-x:hidden}
   </div>
 </section>
 
+
+<section id="servicios" class="section">
+  <div class="portal-section-label">SERVICIOS A DOMICILIO</div>
+  <div class="home-visit-banner">
+    <div class="home-visit-banner-copy">
+      <span class="tag">NUEVA PROPUESTA DE SERVICIO</span>
+      <h2>Atención en casa, coordinada contigo</h2>
+      <p>Conoce las opciones de atención domiciliaria que AUXISALUD busca organizar. La disponibilidad, el precio y el profesional responsable se confirmarán antes de aceptar cualquier cita.</p>
+    </div>
+    <div class="home-visit-banner-mark" aria-hidden="true">
+      <span>⌂</span>
+      <strong>Visita domiciliaria</strong>
+      <small>Solicitud preliminar · Servicio en preparación</small>
+    </div>
+  </div>
+
+  <div class="home-visit-layout">
+    <article class="home-visit-card">
+      <div class="home-visit-photo">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85" alt="Profesional de salud conversando con una persona durante una atención">
+        <span class="home-visit-photo-label">SERVICIO 01</span>
+      </div>
+      <div class="home-visit-content">
+        <div class="home-visit-title-row">
+          <div>
+            <span class="home-visit-kicker">ATENCIÓN DOMICILIARIA</span>
+            <h3>Visita domiciliaria</h3>
+          </div>
+          <span class="home-visit-price">Precio por definir</span>
+        </div>
+        <p>Visita programada en el domicilio para conocer las necesidades de cuidado de la persona, ofrecer orientación básica y coordinar las actividades que correspondan según el motivo de la solicitud, las competencias del personal y las condiciones del servicio.</p>
+
+        <h4>¿Qué puede contemplar?</h4>
+        <ul class="home-visit-list">
+          <li><span>✓</span> Conversación inicial para conocer qué tipo de apoyo se necesita.</li>
+          <li><span>✓</span> Revisión de necesidades básicas de cuidado, según el alcance del servicio.</li>
+          <li><span>✓</span> Orientación al usuario o familiar sobre cuidados en casa.</li>
+          <li><span>✓</span> Coordinación de otros servicios disponibles, si corresponde.</li>
+        </ul>
+
+        <h4>Requisitos para solicitarla</h4>
+        <ul class="home-visit-list requirements">
+          <li><span>1</span> Indicar nombre y un medio de contacto.</li>
+          <li><span>2</span> Señalar distrito, fecha y horario preferidos.</li>
+          <li><span>3</span> Describir brevemente el tipo de ayuda que se busca, sin compartir datos clínicos sensibles en este formulario.</li>
+          <li><span>4</span> Esperar la confirmación de cobertura, disponibilidad, precio y responsable de la atención.</li>
+        </ul>
+
+        <div class="home-visit-notice"><strong>Importante:</strong> la solicitud no confirma una cita. El servicio está en preparación y solo podrá ofrecerse cuando se hayan definido la cobertura, las tarifas, el responsable habilitado y las condiciones de atención. No es un servicio de emergencias.</div>
+        <button class="primary home-visit-cta" type="button" onclick="toggleVisitForm()">Solicitar visita domiciliaria <span aria-hidden="true">→</span></button>
+      </div>
+    </article>
+
+    <aside class="visit-side-panel">
+      <div class="visit-side-icon">📅</div>
+      <h3>¿Cómo funcionaría?</h3>
+      <ol>
+        <li><b>Envías una solicitud</b><small>Indicas tus datos de contacto y horario preferido.</small></li>
+        <li><b>Revisamos la disponibilidad</b><small>Se comprueba si el servicio está disponible en tu zona.</small></li>
+        <li><b>Confirmamos los detalles</b><small>Se informa el precio y quién realizará la atención antes de aceptar la cita.</small></li>
+      </ol>
+      <div class="visit-side-footer"><span>💬</span><div><b>Contacto empresarial</b><small>El número y el canal de contacto se agregarán cuando el equipo los defina.</small></div></div>
+    </aside>
+  </div>
+
+  <div id="visitFormPanel" class="visit-request-panel hidden">
+    <div class="visit-form-heading">
+      <div><span class="home-visit-kicker">SOLICITUD PRELIMINAR</span><h3>Solicitar visita domiciliaria</h3><p>Completa estos datos para mostrar cómo funcionará el formulario. Esta versión todavía no envía ni guarda solicitudes.</p></div>
+      <button class="visit-close" type="button" onclick="toggleVisitForm(false)" aria-label="Cerrar formulario">×</button>
+    </div>
+    <form id="visitRequestForm" onsubmit="submitVisitRequest(event)">
+      <div class="visit-form-grid">
+        <label>Nombre de quien solicita<input name="requester" autocomplete="name" required placeholder="Nombre y apellido"></label>
+        <label>Teléfono de contacto<input name="phone" type="tel" autocomplete="tel" required placeholder="Número de contacto"></label>
+        <label>Distrito donde se requiere la visita<input name="district" required placeholder="Ej. Huánuco"></label>
+        <label>Fecha preferida<input name="date" type="date" required></label>
+        <label>Horario preferido
+          <select name="time" required>
+            <option value="">Seleccionar horario</option>
+            <option>Mañana</option><option>Tarde</option><option>Horario flexible</option>
+          </select>
+        </label>
+        <label>Tipo de apoyo que busca
+          <select name="need" required>
+            <option value="">Seleccionar opción</option>
+            <option>Orientación de cuidado en casa</option>
+            <option>Control de signos vitales</option>
+            <option>Apoyo para adulto mayor</option>
+            <option>Curación (sujeta a evaluación)</option>
+            <option>Consulta sobre otro servicio</option>
+          </select>
+        </label>
+      </div>
+      <label>Comentario opcional<textarea name="comment" rows="3" placeholder="Añade solo información general. No incluyas diagnósticos, historia clínica ni otros datos médicos sensibles."></textarea></label>
+      <label class="visit-consent"><input type="checkbox" required> Entiendo que esta es una solicitud preliminar, no una cita confirmada ni un canal para emergencias.</label>
+      <button class="primary" type="submit">Probar solicitud</button>
+    </form>
+    <div id="visitRequestStatus" class="visit-request-status" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
 <section id="admin" class="section">
   <div class="portal-section-label">GESTIÓN Y AMPLIACIÓN DE CONTENIDOS</div>
   <div class="admin-banner"><span class="tag">MODO EDICIÓN</span><h2>Haz crecer la plataforma</h2><p>Agrega nuevas categorías y después podremos conectar esta sección a una base de datos para guardarlas permanentemente.</p></div>
@@ -895,6 +1070,25 @@ body{overflow-x:hidden}
 <script src="script.js"></script>
 
 
+
+
+<script>
+function toggleVisitForm(forceOpen) {
+  const panel = document.getElementById("visitFormPanel");
+  if (!panel) return;
+  const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : panel.classList.contains("hidden");
+  panel.classList.toggle("hidden", !shouldOpen);
+  if (shouldOpen) panel.scrollIntoView({behavior:"smooth", block:"start"});
+}
+function submitVisitRequest(event) {
+  event.preventDefault();
+  const form = document.getElementById("visitRequestForm");
+  const status = document.getElementById("visitRequestStatus");
+  if (!form || !status) return;
+  status.textContent = "La demostración del formulario funciona, pero esta solicitud todavía no se envía ni se guarda. Antes de recibir solicitudes reales, AUXISALUD debe conectar un canal seguro de contacto, definir la zona de cobertura, confirmar precios y establecer quién prestará cada servicio. No compartas aquí información clínica sensible.";
+  status.classList.add("is-visible");
+}
+</script>
 
 </body>
 </html>
