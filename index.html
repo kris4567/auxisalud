@@ -1137,6 +1137,11 @@ function requestAuxiService(serviceName) {
     const option = Array.from(select.options).find(o => o.text.trim() === serviceName || o.value === serviceName);
     if (option) select.value = option.value || option.text;
   }
+  const status = document.getElementById("visitRequestStatus");
+  if (status) {
+    status.textContent = "";
+    status.classList.remove("is-visible");
+  }
   toggleVisitForm(true);
   const panel = document.getElementById("visitFormPanel");
   if (panel) panel.scrollIntoView({behavior:"smooth", block:"start"});
