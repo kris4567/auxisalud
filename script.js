@@ -15,6 +15,9 @@ function enterSite(){
 function showSection(id){
   const target=document.getElementById(id);
   if(!target)return;
+  document.querySelectorAll("main > .section").forEach(section=>{
+    section.classList.toggle("active",section.id===id);
+  });
   target.scrollIntoView({behavior:"smooth",block:"start"});
   const nav=document.getElementById("nav");
   if(nav)nav.classList.remove("nav-open");
