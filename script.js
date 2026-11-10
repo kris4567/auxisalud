@@ -304,3 +304,158 @@ if (addForm) {
 }
 
 renderEmergencies();
+
+/* ===== AUXISALUD: INTERACTIVIDAD VISUAL DE EMERGENCIAS ===== */
+var activeEmergencyCategory = "Todas";
+
+function renderEmergencyFilters() {
+  var container = document.getElementById("emergencyFilters");
+  if (!container) return;
+  var categories = ["Todas"];
+  emergencies.forEach(function(item) {
+    var category = item.category || "Primeros auxilios";
+    if (!categories.includes(category)) categories.push(category);
+  });
+  container.innerHTML = "";
+  categories.forEach(function(category) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "emergency-filter" + (category === activeEmergencyCategory ? " active" : "");
+    button.textContent = category;
+    button.setAttribute("aria-pressed", category === activeEmergencyCategory ? "true" : "false");
+    button.addEventListener("click", function() {
+      activeEmergencyCategory = category;
+      renderEmergencyFilters();
+      filterEmergencies();
+    });
+    container.appendChild(button);
+  });
+}
+
+function renderEmergencies(list) {
+  var grid = document.getElementById("emergencyGrid");
+  var empty = document.getElementById("emptySearch");
+  var counter = document.getElementById("emergencyCount");
+  if (!grid || !empty) return;
+  var items = Array.isArray(list) ? list : emergencies;
+  grid.innerHTML = "";
+  items.forEach(function(item) {
+    var index = emergencies.indexOf(item);
+    var card = document.createElement("article");
+    card.className = "emergency-card";
+    card.tabIndex = 0;
+    card.setAttribute("role","button");
+    card.setAttribute("aria-label","Consultar " + item.name);
+    card.innerHTML =
+      '<div class="icon">' + escapeHTML(item.icon) + '</div>' +
+      '<span class="emergency-card-label">' + escapeHTML(item.category || "Primeros auxilios") + '</span>' +
+      '<h3>' + escapeHTML(item.name) + '</h3>' +
+      '<p>' + escapeHTML(item.desc) + '</p>' +
+      '<div class="emergency-card-more">Ver guía completa →</div>';
+    card.addEventListener("click", function(){ showDetail(index); });
+    card.addEventListener("keydown", function(event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showDetail(index);
+      }
+    });
+    grid.appendChild(card);
+  });
+  empty.classList.toggle("hidden", items.length > 0);
+  if (counter) counter.textContent = items.length + (items.length === 1 ? " tema disponible" : " temas disponibles");
+}
+
+function filterEmergencies() {
+  var input = document.getElementById("search");
+  var query = input ? input.value.toLowerCase().trim() : "";
+  var filtered = emergencies.filter(function(item) {
+    var categoryMatch = activeEmergencyCategory === "Todas" || (item.category || "Primeros auxilios") === activeEmergencyCategory;
+    var searchText = [
+      item.name,item.category,item.desc
+    ].concat(item.signs || [],item.actions || [],item.avoid || [],item.urgent || [],item.prevention || []).join(" ").toLowerCase();
+    return categoryMatch && searchText.includes(query);
+  });
+  renderEmergencies(filtered);
+}
+
+function clearEmergencySearch() {
+  var input = document.getElementById("search");
+  if (input) input.value = "";
+  activeEmergencyCategory = "Todas";
+  renderEmergencyFilters();
+  filterEmergencies();
+}
+
+function detailAccordion(title, icon, content, open, extraClass) {
+  return '<details class="detail-box ' + (extraClass || "") + '" ' + (open ? "open" : "") + '>' +
+    '<summary><span class="detail-summary-title">' + icon + ' ' + title + '</span><span>Ver contenido</span></summary>' +
+    content + '</details>';
+}
+
+function showDetail(index) {
+  var item = emergencies[index];
+  var panel = document.getElementById("detail");
+  if (!item || !panel) return;
+  var sources = (item.sources || []).map(function(source) {
+    return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(source.label) + '</a>';
+  }).join("");
+  var boxes = [
+    detailAccordion("¿Cómo reconocerla?","🔎","<ul>" + listHTML(item.signs || []) + "</ul>",false,""),
+    detailAccordion("¿Qué hacer?","✅","<ol>" + listHTML(item.actions || item.steps || []) + "</ol>",true,""),
+    detailAccordion("¿Qué evitar?","⛔","<ul>" + listHTML(item.avoid || []) + "</ul>",false,"avoid"),
+    detailAccordion("¿Cuándo pedir ayuda urgente?","🚨","<ul>" + listHTML(item.urgent || []) + "</ul>",true,"urgent"),
+    detailAccordion("Prevención","🛡️","<ul>" + listHTML(item.prevention || []) + "</ul>",false,"")
+  ].join("");
+  panel.innerHTML =
+    '<button class="secondary" type="button" onclick="document.getElementById(\'detail\').classList.add(\'hidden\')">← Volver a las emergencias</button>' +
+    '<div class="detail-header"><div class="detail-title-group"><div class="detail-icon">' + escapeHTML(item.icon) + '</div><div><span class="detail-tag">' + escapeHTML(item.category || "Primeros auxilios") + '</span><h3>' + escapeHTML(item.name) + '</h3><p class="detail-summary">' + escapeHTML(item.desc) + '</p></div></div></div>' +
+    '<div class="detail-grid">' + boxes + '</div>' +
+    '<div class="detail-bottom-note"><strong>Importante:</strong> ' + escapeHTML(item.note || "Esta información es educativa y no reemplaza la evaluación de un profesional.") + ' Ante una emergencia médica en Perú, llama al <a href="tel:106"><strong>SAMU 106</strong></a>.</div>' +
+    (sources ? '<div class="detail-sources"><strong>Fuentes de consulta</strong>' + sources + '</div>' : "");
+  panel.classList.remove("hidden");
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function initializeEmergencyQuiz() {
+  var form = document.getElementById("emergencyQuizForm");
+  var result = document.getElementById("emergencyQuizResult");
+  var reset = document.getElementById("resetEmergencyQuiz");
+  if (!form || !result) return;
+  var answers = {q1:"b",q2:"a",q3:"c",q4:"b"};
+  var explanations = [
+    "Ante la falta de respuesta y respiración normal, activa el 106, solicita un DEA e inicia RCP siguiendo las instrucciones del operador.",
+    "La presión directa ayuda a controlar una hemorragia externa. No retires objetos incrustados.",
+    "Una quemadura térmica se enfría con agua corriente fresca durante 20 minutos. No uses hielo ni remedios caseros.",
+    "En adultos con obstrucción grave, pide ayuda y sigue la secuencia de primeros auxilios indicada en la guía."
+  ];
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var data = new FormData(form);
+    var unanswered = Object.keys(answers).filter(function(key){ return !data.get(key); });
+    if (unanswered.length) {
+      result.className = "quiz-result incomplete";
+      result.innerHTML = "<strong>Te faltan respuestas.</strong><p>Responde las cuatro preguntas para revisar tu resultado.</p>";
+      return;
+    }
+    var score = 0;
+    var feedback = "";
+    Object.keys(answers).forEach(function(key,index) {
+      var correct = data.get(key) === answers[key];
+      if (correct) score++;
+      feedback += "<li><strong>Pregunta " + (index+1) + ": " + (correct ? "Correcta" : "Revisa") + ".</strong> " + explanations[index] + "</li>";
+    });
+    result.className = "quiz-result";
+    result.innerHTML = "<strong>Obtuviste " + score + " de 4 respuestas correctas.</strong><p>" +
+      (score === 4 ? "¡Excelente! Respondiste correctamente todas las preguntas." : "Revisa las explicaciones y vuelve a intentarlo para reforzar lo aprendido.") +
+      "</p><ul>" + feedback + "</ul>";
+    result.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+  if (reset) reset.addEventListener("click",function(){
+    form.reset();
+    result.className = "quiz-result hidden";
+    result.innerHTML = "";
+  });
+}
+renderEmergencyFilters();
+filterEmergencies();
+initializeEmergencyQuiz();
