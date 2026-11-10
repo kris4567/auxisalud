@@ -270,19 +270,165 @@ function showDetail(index) {
   panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
+const learningModules = {
+  fundamentos: {
+    icon:"🧠", number:"MÓDULO 01", title:"Fundamentos de primeros auxilios",
+    intro:"Los primeros auxilios son la ayuda inicial que se brinda a una persona que presenta una lesión o un problema de salud repentino. Su finalidad es proteger la vida, evitar que la situación empeore y acompañar a la persona hasta que reciba atención adecuada.",
+    blocks:[
+      {title:"¿Qué se busca con los primeros auxilios?",items:["Reconocer rápidamente una situación que necesita ayuda.","Proteger a la persona afectada y a quienes la rodean.","Prevenir complicaciones mientras llega la atención profesional.","Brindar apoyo básico de acuerdo con los conocimientos y la capacitación de quien auxilia."]},
+      {title:"La secuencia PAS",items:["PROTEGER: comprueba que el lugar sea seguro. Identifica tránsito, electricidad, fuego, humo, sustancias peligrosas u otros riesgos.","AVISAR: pide ayuda y activa el servicio de emergencia cuando corresponda. En una emergencia médica en Perú puedes llamar al SAMU 106.","SOCORRER: brinda la ayuda inicial que conoces, explica lo que harás y respeta la decisión de una persona consciente que puede decidir."]}
+    ],
+    takeaway:"No es necesario realizar maniobras complejas para ayudar. Mantener la seguridad, reconocer una urgencia y solicitar asistencia a tiempo también son acciones importantes."
+  },
+  evaluacion: {
+    icon:"🔎", number:"MÓDULO 02", title:"Evaluación inicial y seguridad",
+    intro:"Antes de actuar, observa la escena y determina si hay peligro. La evaluación inicial permite reconocer problemas que pueden comprometer la vida y decidir cuándo se necesita ayuda profesional inmediata.",
+    blocks:[
+      {title:"Orden de observación",items:["Mira alrededor antes de acercarte. No ingreses a lugares con fuego, humo, electricidad, derrumbes, tráfico u otros peligros sin personal especializado.","Acércate con calma, identifícate y explica que deseas ayudar. Si la persona está consciente y puede decidir, solicita su consentimiento.","Comprueba si responde cuando le hablas. Observa si respira normalmente y si existe una hemorragia abundante o una lesión evidente.","Si no responde, no respira normalmente, presenta sangrado grave o muestra signos de alarma, activa el servicio de emergencia sin demora."]}
+      ,{title:"Información que debes comunicar",items:["Ubicación exacta y referencias para encontrar el lugar.","Qué ocurrió y cuándo sucedió, si lo sabes.","Cuántas personas necesitan ayuda y cómo se encuentran.","Peligros presentes y medidas que ya se realizaron. Mantén la comunicación y sigue las indicaciones del operador."]}
+    ],
+    takeaway:"No muevas a una persona con posible lesión de cabeza, cuello, columna o fractura, salvo que exista un peligro inmediato o sea necesario para una intervención vital. Evita acciones que puedan empeorar la lesión."
+  },
+  rcp: {
+    icon:"❤️", number:"MÓDULO 03", title:"Paro cardíaco, RCP y DEA",
+    intro:"El paro cardíaco es una emergencia en la que la persona pierde la capacidad de responder y no respira normalmente. Reconocerlo y activar la ayuda de inmediato puede ser decisivo.",
+    blocks:[
+      {title:"Señales que requieren actuar",items:["La persona no responde cuando le hablas o estimulas suavemente.","No respira normalmente o solo presenta jadeos aislados y anormales.","No pierdas tiempo buscando pulso si no tienes formación para realizar esa valoración."]}
+      ,{title:"Respuesta inicial",items:["Pide a alguien que llame al SAMU 106 y que consiga un desfibrilador externo automático (DEA), si hay uno disponible.","Activa el altavoz del teléfono para poder seguir las instrucciones del operador mientras ayudas.","Inicia RCP si sabes realizarla o sigue las instrucciones telefónicas del personal de emergencia.","Cuando llegue un DEA, enciéndelo y sigue sus indicaciones de voz. No toques a la persona durante el análisis o la descarga.","Continúa hasta que la persona muestre signos claros de recuperación, llegue el personal de emergencia o no puedas continuar por agotamiento."]}
+    ],
+    takeaway:"La RCP requiere aprendizaje práctico. Este módulo no sustituye la capacitación presencial ni enseña por sí solo a dominar la técnica. Ante una persona que no responde y no respira normalmente, activa inmediatamente la ayuda de emergencia."
+  },
+  hemorragias: {
+    icon:"🩹", number:"MÓDULO 04", title:"Heridas y hemorragias",
+    intro:"Una hemorragia es la pérdida de sangre. Puede ser externa, cuando la sangre sale del cuerpo, o interna, cuando ocurre dentro del organismo y no siempre es visible. El sangrado abundante puede poner en riesgo la vida.",
+    blocks:[
+      {title:"Medidas iniciales ante sangrado externo",items:["Protege tus manos con guantes o una barrera limpia cuando esté disponible.","Coloca una gasa o tela limpia sobre la herida y aplica presión directa, firme y continua.","Si la tela se empapa, no retires la primera capa; sigue las instrucciones del personal de emergencia.","Si hay un objeto incrustado, no lo retires ni presiones directamente sobre él. Busca ayuda urgente.","Ante sangrado abundante, persistente o acompañado de debilidad, palidez o pérdida de conciencia, llama al SAMU 106."]}
+      ,{title:"Qué debes evitar",items:["No coloques café, tierra, ceniza, pasta dental ni sustancias caseras en la herida.","No retires objetos incrustados ni explores la herida con los dedos.","No improvises torniquetes. Su uso y el empaquetamiento de heridas requieren capacitación y una situación que lo justifique."]}
+    ],
+    takeaway:"La presión directa es una medida inicial importante para el sangrado externo. La hemorragia grave necesita asistencia de emergencia; no demores la llamada para intentar resolverla por tu cuenta."
+  },
+  quemaduras: {
+    icon:"🔥", number:"MÓDULO 05", title:"Quemaduras y lesiones frecuentes",
+    intro:"Las quemaduras pueden producirse por calor, líquidos calientes, electricidad o sustancias químicas. La gravedad depende de la profundidad, extensión, zona afectada y condición de la persona.",
+    blocks:[
+      {title:"Cuidados iniciales ante una quemadura térmica",items:["Aleja a la persona de la fuente de calor sin exponerte al peligro.","Enfría la zona con agua corriente fresca durante 20 minutos. No uses hielo.","Retira anillos, relojes o prendas ajustadas cercanas antes de que aparezca hinchazón, pero no arranques ropa adherida a la piel.","Después del enfriamiento, cubre la zona de forma holgada con un apósito limpio y no adherente mientras se busca valoración cuando corresponda.","Solicita evaluación profesional si la quemadura es extensa, profunda o afecta rostro, manos, pies o genitales."]}
+      ,{title:"Señales de alarma y errores frecuentes",items:["Dificultad para respirar, humo inhalado, quemaduras en la cara o signos de compromiso general requieren ayuda urgente.","No revientes ampollas ni apliques pasta dental, mantequilla, aceite, alcohol o hielo directamente.","Las quemaduras eléctricas y químicas requieren valoración profesional. No toques a una persona que sigue en contacto con una fuente eléctrica; primero debe cortarse la energía de forma segura."]}
+    ],
+    takeaway:"Para una quemadura térmica, el agua corriente fresca durante 20 minutos es una medida inicial recomendada por el MINSA. La valoración profesional es importante cuando la lesión es extensa, profunda o afecta zonas delicadas."
+  },
+  otras: {
+    icon:"🛡️", number:"MÓDULO 06", title:"Atragantamiento, convulsiones y prevención",
+    intro:"Algunas emergencias requieren reconocer rápidamente las señales y evitar maniobras que puedan causar daño. También es importante preparar el hogar y mantener medidas básicas de higiene.",
+    blocks:[
+      {title:"Atragantamiento",items:["Si la persona puede hablar, respirar y toser con fuerza, anímala a seguir tosiendo y vigila su estado.","Si no puede hablar, respirar o toser eficazmente, pide ayuda urgente y sigue las indicaciones del operador y las técnicas aprendidas en un curso práctico.","No le des agua ni introduzcas los dedos a ciegas en la boca. Las maniobras para desobstruir dependen de la edad y la condición de la persona."]}
+      ,{title:"Convulsiones",items:["Retira objetos cercanos con los que pueda golpearse y protege su cabeza con algo suave, si es posible.","No sujetes con fuerza sus movimientos y nunca introduzcas objetos, alimentos o dedos en su boca.","Cuando terminen los movimientos, comprueba su respiración y colócala de lado si respira normalmente y no hay una lesión que lo impida.","Llama al 106 si es la primera convulsión, dura más de cinco minutos, se repite, ocurre en el agua, hay lesión o dificultad respiratoria, la persona está embarazada o no recupera su estado habitual."]}
+      ,{title:"Caídas, fracturas y prevención",items:["Ante una posible fractura, evita mover o enderezar la zona. Mantén a la persona en una posición cómoda y solicita evaluación.","Mantén pasillos iluminados y libres de cables, objetos sueltos y superficies resbaladizas.","Ten a mano teléfonos de emergencia, dirección del domicilio y datos relevantes que puedan facilitar la comunicación.","Lávate las manos con agua y jabón durante al menos 20 segundos. Usa guantes u otra protección cuando exista riesgo de contacto con sangre o fluidos."]}
+    ],
+    takeaway:"En las convulsiones, atragantamientos y posibles fracturas, evita maniobras improvisadas. Proteger, pedir ayuda y actuar dentro de tu formación es más seguro que intentar procedimientos que no dominas."
+  }
+};
+
+const completedLearningModules = new Set();
+
+function learningList(items) {
+  return "<ul>" + (items || []).map(function(item){ return "<li>" + escapeHTML(item) + "</li>"; }).join("") + "</ul>";
+}
+
+function renderLearningProgress() {
+  var total = Object.keys(learningModules).length;
+  var done = completedLearningModules.size;
+  var percent = Math.round((done / total) * 100);
+  var text = document.getElementById("learningProgressText");
+  var percentText = document.getElementById("learningProgressPercent");
+  var fill = document.getElementById("learningProgressFill");
+  if (text) text.textContent = done + " de " + total + " módulos estudiados";
+  if (percentText) percentText.textContent = percent + "%";
+  if (fill) fill.style.width = percent + "%";
+  document.querySelectorAll("#learningModulesGrid .learning-module").forEach(function(button) {
+    var key = button.getAttribute("data-learning");
+    button.classList.toggle("completed", completedLearningModules.has(key));
+  });
+}
+
 function openLearning(type) {
-  const panel = document.getElementById("learningPanel");
-  if (!panel) return;
-  const content = {
-    conceptos:["🧠 Conceptos básicos","Revisa las fichas de emergencias para conocer definiciones, señales de alerta, acciones iniciales y medidas de prevención."],
-    pasos:["📝 Pasos básicos","Cada ficha organiza la respuesta inicial en pasos sencillos. Practica las técnicas mediante cursos presenciales de primeros auxilios."],
-    visual:["🖼️ Material visual","En esta sección se incorporarán infografías, imágenes y esquemas para reforzar el aprendizaje de primeros auxilios."],
-    quiz:["❓ Quiz educativo","Próximamente se incorporarán preguntas para reforzar lo aprendido sobre las emergencias y sus medidas iniciales."]
-  }[type];
-  if (!content) return;
-  panel.innerHTML = "<h3>"+escapeHTML(content[0])+"</h3><p>"+escapeHTML(content[1])+"</p>";
+  var panel = document.getElementById("learningPanel");
+  var item = learningModules[type];
+  if (!panel || !item) return;
+  var sections = item.blocks.map(function(block) {
+    return '<section class="learning-content-box"><h4>' + escapeHTML(block.title) + '</h4>' + learningList(block.items) + '</section>';
+  }).join("");
+  panel.innerHTML =
+    '<div class="learning-panel-head"><div class="learning-panel-icon">' + escapeHTML(item.icon) + '</div><div><span class="learning-kicker">' + escapeHTML(item.number) + '</span><h3>' + escapeHTML(item.title) + '</h3><p>' + escapeHTML(item.intro) + '</p></div></div>' +
+    '<div class="learning-panel-body">' + sections + '</div>' +
+    '<div class="learning-module-takeaway"><strong>Para recordar:</strong> ' + escapeHTML(item.takeaway) + '</div>' +
+    '<div class="learning-panel-actions"><button type="button" class="learning-done" id="markLearningDone">' + (completedLearningModules.has(type) ? '✓ Módulo estudiado' : 'Marcar como estudiado') + '</button><button type="button" class="learning-close" id="closeLearningPanel">Cerrar módulo</button></div>';
   panel.classList.remove("hidden");
-  panel.scrollIntoView({behavior:"smooth",block:"center"});
+  document.querySelectorAll("#learningModulesGrid .learning-module").forEach(function(button) {
+    button.classList.toggle("active", button.getAttribute("data-learning") === type);
+  });
+  var markButton = document.getElementById("markLearningDone");
+  if (markButton) markButton.addEventListener("click",function(){
+    completedLearningModules.add(type);
+    renderLearningProgress();
+    markButton.textContent = "✓ Módulo estudiado";
+  });
+  var closeButton = document.getElementById("closeLearningPanel");
+  if (closeButton) closeButton.addEventListener("click",function(){
+    panel.classList.add("hidden");
+    document.querySelectorAll("#learningModulesGrid .learning-module").forEach(function(button){ button.classList.remove("active"); });
+  });
+  renderLearningProgress();
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function initializeLearningQuiz() {
+  var form = document.getElementById("learningQuizForm");
+  var result = document.getElementById("learningQuizResult");
+  var reset = document.getElementById("resetLearningQuiz");
+  if (!form || !result || form.dataset.initialized === "true") return;
+  form.dataset.initialized = "true";
+  var answers = {lq1:"b",lq2:"a",lq3:"c",lq4:"b",lq5:"a",lq6:"c",lq7:"b",lq8:"a"};
+  var explanations = [
+    "Primero observa si hay riesgos para ti, la persona afectada y los demás. No te conviertas en otra víctima.",
+    "PAS significa Proteger, Avisar y Socorrer. Es una forma sencilla de recordar el orden general de actuación.",
+    "La falta de respuesta y la respiración anormal requieren activar el SAMU, solicitar un DEA e iniciar la respuesta indicada por el operador y la capacitación recibida.",
+    "La presión directa con una gasa o tela limpia ayuda a controlar el sangrado externo. No retires objetos incrustados.",
+    "El MINSA recomienda enfriar las quemaduras térmicas con agua fresca durante 20 minutos. No se debe aplicar hielo directamente.",
+    "No sujetes los movimientos ni introduzcas objetos en la boca durante una convulsión. Protege a la persona de golpes y pide ayuda si hay señales de alarma.",
+    "No intentes enderezar una fractura. Mantén la zona quieta y busca valoración profesional.",
+    "La higiene de manos y el equipo de protección adecuado reducen la exposición a sangre y otros fluidos."
+  ];
+  form.addEventListener("submit",function(event){
+    event.preventDefault();
+    var data = new FormData(form);
+    var keys = Object.keys(answers);
+    var unanswered = keys.filter(function(key){return !data.get(key);});
+    if (unanswered.length) {
+      result.className = "learning-quiz-result";
+      result.innerHTML = "<strong>Completa las preguntas que faltan.</strong><p>Responde las ocho preguntas para conocer tu resultado.</p>";
+      result.scrollIntoView({behavior:"smooth",block:"nearest"});
+      return;
+    }
+    var score = 0;
+    var rows = "";
+    keys.forEach(function(key,index){
+      var correct = data.get(key) === answers[key];
+      if (correct) score++;
+      rows += '<li class="' + (correct ? "answer-correct" : "answer-review") + '"><strong>Pregunta ' + (index+1) + ': ' + (correct ? "Correcta" : "Para repasar") + '.</strong> ' + explanations[index] + '</li>';
+    });
+    var message = score === 8 ? "¡Excelente! Has respondido correctamente todas las preguntas." :
+      score >= 6 ? "¡Buen trabajo! Revisa las explicaciones de los puntos que puedes reforzar." :
+      score >= 4 ? "Vas avanzando. Repasa los módulos y vuelve a intentarlo." :
+      "Te recomendamos volver a estudiar los módulos antes de repetir el cuestionario.";
+    result.className = "learning-quiz-result";
+    result.innerHTML = "<strong>Tu resultado: " + score + " de 8 respuestas correctas.</strong><p>" + message + "</p><ul>" + rows + "</ul>";
+    result.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+  if (reset) reset.addEventListener("click",function(){
+    form.reset();
+    result.className = "learning-quiz-result hidden";
+    result.innerHTML = "";
+  });
 }
 
 const addForm = document.getElementById("addForm");
@@ -459,3 +605,5 @@ function initializeEmergencyQuiz() {
 renderEmergencyFilters();
 filterEmergencies();
 initializeEmergencyQuiz();
+renderLearningProgress();
+initializeLearningQuiz();
