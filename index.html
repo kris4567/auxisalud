@@ -919,6 +919,125 @@ body{overflow-x:hidden}
 @media(max-width:900px){.emergency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.emergency-explorer,.first-aid-quiz{padding:18px}.explorer-heading,.quiz-heading{align-items:flex-start}.topic-counter{font-size:.68rem;padding:7px 9px}.emergency-grid{grid-template-columns:1fr}.emergency-grid .emergency-card{min-height:0}.explorer-heading h3,.quiz-heading h3{font-size:1.25rem}}
 </style>
+
+<style id="learning-academy-styles">
+/* AULA DIGITAL AUXISALUD */
+#aprende .learning-course-hero{max-width:1160px;margin:8px auto 26px;min-height:330px;display:grid;grid-template-columns:1.45fr .75fr;gap:24px;align-items:stretch;overflow:hidden;border-radius:26px;background:linear-gradient(118deg,#064b59 0%,#007987 68%,#10aeba 100%);box-shadow:0 18px 42px rgba(4,77,89,.14)}
+#aprende .learning-course-copy{padding:38px 42px;color:#fff;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+#aprende .learning-kicker{display:block;color:#078b98;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+#aprende .learning-course-copy .learning-kicker{color:#a8f2f3}
+#aprende .learning-course-copy h2{color:#fff;font-size:clamp(2rem,4vw,3.15rem);line-height:1.07;letter-spacing:-.04em;margin:12px 0}
+#aprende .learning-course-copy p{max-width:680px;color:#e0f6f8;font-size:.96rem;margin:0}
+#aprende .learning-hero-points{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
+#aprende .learning-hero-points span{padding:7px 10px;border:1px solid rgba(255,255,255,.23);border-radius:999px;background:rgba(255,255,255,.10);font-size:.76rem;color:#f3ffff}
+#aprende .learning-jump{display:inline-flex;align-items:center;gap:12px;padding:11px 16px;border-radius:11px;background:#fff;color:#075a68;font-weight:800;font-size:.86rem}
+#aprende .learning-jump span{font-size:1.1rem}
+#aprende .learning-course-art{position:relative;min-height:280px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.18),transparent 45%)}
+#aprende .learning-art-orbit{position:absolute;width:250px;height:250px;border:1px solid rgba(255,255,255,.28);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.045),0 0 0 58px rgba(255,255,255,.035)}
+#aprende .learning-art-cross{position:relative;z-index:1;width:120px;height:120px;display:grid;place-items:center;border-radius:35px;color:#fff;font-size:4.2rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.34);box-shadow:0 20px 45px rgba(0,37,44,.18);backdrop-filter:blur(8px)}
+#aprende .learning-art-note{position:absolute;z-index:2;bottom:20px;left:15px;right:15px;max-width:350px;margin:auto;padding:13px 15px;border:1px solid rgba(255,255,255,.2);border-radius:13px;background:rgba(0,55,66,.66);backdrop-filter:blur(8px);color:#fff}
+#aprende .learning-art-note strong,#aprende .learning-art-note small{display:block}
+#aprende .learning-art-note strong{font-size:.84rem}
+#aprende .learning-art-note small{margin-top:3px;color:#d4f2f4;font-size:.72rem}
+#aprende .learning-summary-strip{max-width:1100px;margin:0 auto 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+#aprende .learning-summary-strip>div{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:11px;align-items:center;padding:16px;border:1px solid #dceff1;border-radius:15px;background:#fff;box-shadow:0 7px 20px rgba(4,77,89,.055)}
+#aprende .learning-summary-strip span{grid-row:1/3;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#e8f8fa;font-size:1.3rem}
+#aprende .learning-summary-strip strong{color:#075a68;font-size:.9rem}
+#aprende .learning-summary-strip small{color:#70878e;font-size:.73rem}
+#aprende .learning-section-heading{max-width:1100px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:end}
+#aprende .learning-section-heading h3,#aprende .learning-quiz-heading h3{margin:6px 0;color:#075a68;font-size:1.8rem;letter-spacing:-.03em}
+#aprende .learning-section-heading p,#aprende .learning-quiz-heading p{margin:0;color:#667f86;font-size:.88rem;max-width:760px}
+#aprende .learning-progress-card{max-width:1100px;margin:0 auto 18px;padding:17px 19px;border:1px solid #cfe8eb;border-radius:15px;background:linear-gradient(115deg,#f0fafb,#fff)}
+#aprende .learning-progress-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+#aprende .learning-progress-top div{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#aprende .learning-progress-top div span{font-size:.67rem;letter-spacing:.1em;font-weight:850;color:#078b98}
+#aprende .learning-progress-top strong{font-size:.87rem;color:#174a55}
+#aprende .learning-progress-top>span{font-size:.95rem;font-weight:900;color:#078b98}
+#aprende .learning-progress-track{height:9px;border-radius:99px;background:#dceef0;overflow:hidden}
+#aprende .learning-progress-track div{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#008c9b,#36c1ad);transition:width .25s ease}
+#aprende .learning-progress-card>small{display:block;margin-top:8px;color:#748990;font-size:.7rem}
+#aprende .learning-modules-grid{max-width:1100px;margin:0 auto 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+#aprende .learning-module{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-height:220px;padding:20px!important;text-align:left!important;background:#fff!important;color:#173f49!important;border:1px solid #dceff1!important;border-radius:17px!important;box-shadow:0 8px 24px rgba(4,77,89,.06)!important}
+#aprende .learning-module:hover,#aprende .learning-module.active{transform:translateY(-4px);border-color:#74cbd2!important;box-shadow:0 14px 30px rgba(4,77,89,.11)!important}
+#aprende .learning-module.completed:after{content:"✓ ESTUDIADO";position:absolute;top:15px;right:14px;padding:5px 8px;border-radius:999px;background:#e8f8f1;color:#21845e;font-size:.61rem;font-weight:900}
+#aprende .learning-module-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e8f8fa;font-size:1.55rem;margin-bottom:14px}
+#aprende .learning-module-number{font-size:.64rem;letter-spacing:.12em;color:#008c9b;font-weight:900}
+#aprende .learning-module strong{font-size:1rem;color:#075a68;margin:5px 0 7px}
+#aprende .learning-module small{font-size:.78rem;color:#70868d;line-height:1.45}
+#aprende .learning-module-link{font-size:.76rem;color:#008c9b;font-weight:850;margin-top:auto;padding-top:15px}
+#aprende .learning-panel{max-width:1100px;margin:20px auto 38px;padding:26px;border:1px solid #cde8eb;border-radius:20px;background:#fff;box-shadow:0 15px 38px rgba(4,77,89,.09);scroll-margin-top:100px}
+#aprende .learning-panel-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+#aprende .learning-panel-icon{width:58px;height:58px;flex:none;display:grid;place-items:center;border-radius:17px;background:#e7f8fa;font-size:1.9rem}
+#aprende .learning-panel-head h3{margin:3px 0 5px;color:#075a68;font-size:1.55rem}
+#aprende .learning-panel-head p{margin:0;color:#617a82;font-size:.87rem}
+#aprende .learning-panel-body{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+#aprende .learning-content-box{padding:17px;border:1px solid #e0eff1;border-radius:14px;background:#fbfefe}
+#aprende .learning-content-box h4{margin:0 0 10px;color:#087987;font-size:.92rem}
+#aprende .learning-content-box ul{margin:0;padding-left:19px;display:grid;gap:7px}
+#aprende .learning-content-box li{font-size:.83rem;color:#4d6971;line-height:1.5}
+#aprende .learning-module-takeaway{margin-top:15px;padding:15px 17px;border-left:4px solid #12a4af;border-radius:0 12px 12px 0;background:#effafb;color:#315b64;font-size:.84rem}
+#aprende .learning-module-takeaway strong{color:#075a68}
+#aprende .learning-panel-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+#aprende .learning-panel-actions button{font-size:.78rem!important;padding:10px 14px!important}
+#aprende .learning-panel-actions .learning-done{background:linear-gradient(135deg,#13835f,#25a879)!important}
+#aprende .learning-panel-actions .learning-close{background:#edf6f7!important;color:#315e67!important;box-shadow:none!important;border:1px solid #d7e9eb!important}
+#aprende .learning-module-sources{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+#aprende .learning-module-sources a{font-size:.73rem;color:#007c8c;text-decoration:underline}
+#aprende .learning-quick-reference{max-width:1100px;margin:42px auto 45px}
+#aprende .learning-section-heading.compact{margin-bottom:17px}
+#aprende .learning-quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+#aprende .learning-quick-grid article{position:relative;overflow:hidden;padding:22px;border:1px solid #dceff1;border-radius:17px;background:#fff;box-shadow:0 8px 22px rgba(4,77,89,.05)}
+#aprende .quick-step-number{position:absolute;right:14px;top:6px;font-size:2.4rem;font-weight:900;color:#eef6f7}
+#aprende .quick-step-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e8f8fa;font-size:1.5rem}
+#aprende .learning-quick-grid h4{margin:13px 0 6px;color:#075a68;letter-spacing:.08em}
+#aprende .learning-quick-grid p{font-size:.8rem;color:#617b83;margin:0 0 10px}
+#aprende .learning-quick-grid a{color:#008c9b;font-weight:900;font-size:.82rem}
+#aprende .learning-quiz-section{max-width:1100px;margin:0 auto 40px;padding:28px;border-radius:22px;background:linear-gradient(145deg,#eff9fa,#f9fcfd);border:1px solid #cfe8eb}
+#aprende .learning-quiz-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:17px}
+#aprende .learning-quiz-emblem{width:62px;height:62px;flex:none;display:grid;place-items:center;border-radius:19px;background:#fff;box-shadow:0 7px 20px rgba(4,77,89,.07);font-size:1.8rem}
+#aprende .learning-question{margin:0 0 13px;padding:16px 17px;border:1px solid #dfedef;border-radius:14px;background:#fff}
+#aprende .learning-question legend{padding:0 4px;color:#174a55;font-size:.87rem;font-weight:850}
+#aprende .learning-question legend span{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;border-radius:8px;background:#e5f7f8;color:#008494;font-size:.74rem}
+#aprende .learning-question label{display:flex;align-items:flex-start;gap:9px;margin:10px 0 0;padding:9px 10px;border-radius:9px;background:#f7fbfc;color:#58747b;font-size:.8rem;cursor:pointer}
+#aprende .learning-question label:hover{background:#edf8f9}
+#aprende .learning-question input{accent-color:#008c9b!important;margin:3px 0 0!important;padding:0!important;box-shadow:none!important;flex:none}
+#aprende .learning-quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+#aprende .learning-quiz-actions button{font-size:.82rem!important}
+#aprende .learning-quiz-reset{background:#fff!important;color:#23616b!important;border:1px solid #cfe6e9!important;box-shadow:none!important}
+#aprende .learning-quiz-result{margin-top:16px;padding:17px;border-radius:13px;background:#fff;border:1px solid #cfe8eb;color:#315d65}
+#aprende .learning-quiz-result>strong{font-size:1.08rem;color:#075a68}
+#aprende .learning-quiz-result>p{margin:5px 0 11px;font-size:.85rem}
+#aprende .learning-quiz-result ul{margin:0;padding-left:20px;display:grid;gap:8px}
+#aprende .learning-quiz-result li{font-size:.79rem;line-height:1.5}
+#aprende .learning-quiz-result .answer-correct{color:#21845e}
+#aprende .learning-quiz-result .answer-review{color:#a46a1a}
+#aprende .learning-sources{max-width:1100px;margin:0 auto 22px;padding:20px;display:grid;grid-template-columns:1.4fr 1fr;gap:12px;border:1px solid #dceff1;border-radius:17px;background:#fff}
+#aprende .learning-sources h3{margin:5px 0;color:#075a68;font-size:1.15rem}
+#aprende .learning-sources p{margin:0;color:#6c8289;font-size:.75rem;max-width:500px}
+#aprende .learning-sources>a{align-self:center;padding:11px 13px;border:1px solid #dceff1;border-radius:11px;background:#f8fcfd;color:#087987;font-size:.77rem;font-weight:800}
+#aprende .learning-sources>a span{float:right}
+#aprende .learning-final-notice{max-width:1100px;margin:0 auto;padding:15px 17px;border-left:4px solid #e7ac45;border-radius:0 12px 12px 0;background:#fff8ea;color:#765d31;font-size:.8rem}
+#aprende .learning-final-notice a{color:#075a68;font-weight:900;text-decoration:underline}
+@media(max-width:900px){
+ #aprende .learning-course-hero{grid-template-columns:1fr}
+ #aprende .learning-course-art{min-height:220px}
+ #aprende .learning-modules-grid{grid-template-columns:repeat(2,1fr)}
+ #aprende .learning-sources{grid-template-columns:1fr 1fr}
+ #aprende .learning-sources>div{grid-column:1/-1}
+}
+@media(max-width:620px){
+ #aprende .learning-course-copy{padding:28px 23px}
+ #aprende .learning-summary-strip{grid-template-columns:1fr}
+ #aprende .learning-summary-strip>div{padding:12px}
+ #aprende .learning-modules-grid,#aprende .learning-quick-grid,#aprende .learning-panel-body,#aprende .learning-sources{grid-template-columns:1fr}
+ #aprende .learning-panel,#aprende .learning-quiz-section{padding:18px}
+ #aprende .learning-panel-head{gap:10px}
+ #aprende .learning-quiz-heading{align-items:flex-start}
+ #aprende .learning-quiz-emblem{width:46px;height:46px;border-radius:14px}
+ #aprende .learning-progress-top{align-items:flex-start}
+}
+</style>
+
 </head>
 <body>
 
@@ -1075,19 +1194,130 @@ body{overflow-x:hidden}
 </section>
 
 <section id="aprende" class="section">
-  <div class="portal-section-label">APRENDE Y REFUERZA TUS CONOCIMIENTOS</div>
-  <div class="banner-section">
-    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1600&q=85" alt="Educación en salud">
-    <div><span class="tag">APRENDIZAJE</span><h2>Aprende paso a paso</h2><p>Material visual preparado para ampliar el proyecto.</p></div>
+  <div class="portal-section-label">AULA DIGITAL · APRENDE Y REFUERZA</div>
+
+  <div class="learning-course-hero">
+    <div class="learning-course-copy">
+      <span class="learning-kicker">AUXISALUD · FORMACIÓN BÁSICA</span>
+      <h2>Aprende a actuar con calma y seguridad</h2>
+      <p>Explora contenidos sencillos sobre primeros auxilios, reconoce señales de alarma y repasa qué puedes hacer mientras llega la ayuda profesional. Avanza a tu ritmo y comprueba lo que aprendiste al final.</p>
+      <div class="learning-hero-points"><span>✓ Explicaciones claras</span><span>✓ Módulos prácticos</span><span>✓ Evaluación interactiva</span></div>
+      <a class="learning-jump" href="#learningModules">Comenzar a aprender <span>↓</span></a>
+    </div>
+    <div class="learning-course-art" aria-hidden="true">
+      <div class="learning-art-orbit"></div>
+      <div class="learning-art-cross">✚</div>
+      <div class="learning-art-note"><strong>Aprender también salva vidas</strong><small>Conocer los límites y pedir ayuda a tiempo es parte de los primeros auxilios.</small></div>
+    </div>
   </div>
-  <div class="learning-row">
-    <article class="info-card interactive-card" onclick="openLearning('conceptos')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80" alt="Conceptos de salud"></div><div><span>🧠</span><h3>Conceptos básicos</h3><p>Definiciones relacionadas con primeros auxilios.</p><b>Explorar →</b></div></article>
-    <article class="info-card interactive-card" onclick="openLearning('pasos')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=700&q=80" alt="Material médico"></div><div><span>📝</span><h3>Pasos básicos</h3><p>Procedimientos organizados de manera sencilla.</p><b>Explorar →</b></div></article>
-    <article class="info-card interactive-card" onclick="openLearning('visual')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=700&q=80" alt="Material educativo"></div><div><span>🖼️</span><h3>Material visual</h3><p>Espacio para imágenes e infografías.</p><b>Preparado para añadir →</b></div></article>
-    <article class="info-card interactive-card" onclick="openLearning('quiz')"><div class="card-photo"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=700&q=80" alt="Cuestionario"></div><div><span>❓</span><h3>Quiz educativo</h3><p>Espacio para evaluar conocimientos.</p><b>Probar →</b></div></article>
+
+  <div class="learning-summary-strip">
+    <div><span>📚</span><strong>6 módulos</strong><small>Temas para estudiar</small></div>
+    <div><span>🧭</span><strong>Ruta guiada</strong><small>De lo básico a la acción</small></div>
+    <div><span>✍️</span><strong>8 preguntas</strong><small>Para reforzar lo aprendido</small></div>
   </div>
-  <div id="learningPanel" class="learning-panel hidden"></div>
-  <div class="notice"><strong>Importante:</strong> Esta plataforma tiene finalidad educativa. Ante una emergencia real, busca atención de profesionales de salud.</div>
+
+  <div class="learning-section-heading" id="learningModules">
+    <div><span class="learning-kicker">RUTA DE APRENDIZAJE</span><h3>Explora los módulos</h3><p>Selecciona una tarjeta para abrir la explicación completa. Al terminar, márcala como estudiada para llevar un control de tu avance durante esta visita.</p></div>
+  </div>
+
+  <div class="learning-progress-card">
+    <div class="learning-progress-top"><div><span>📈 TU AVANCE</span><strong id="learningProgressText">0 de 6 módulos estudiados</strong></div><span id="learningProgressPercent">0%</span></div>
+    <div class="learning-progress-track"><div id="learningProgressFill"></div></div>
+    <small>El avance se mantiene mientras la página permanezca abierta; se reinicia al actualizarla.</small>
+  </div>
+
+  <div class="learning-modules-grid" id="learningModulesGrid">
+    <button type="button" class="learning-module" data-learning="fundamentos" onclick="openLearning('fundamentos')">
+      <span class="learning-module-icon">🧠</span><span class="learning-module-number">MÓDULO 01</span><strong>Fundamentos de primeros auxilios</strong><small>Qué son, para qué sirven y cuáles son sus objetivos.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+    <button type="button" class="learning-module" data-learning="evaluacion" onclick="openLearning('evaluacion')">
+      <span class="learning-module-icon">🔎</span><span class="learning-module-number">MÓDULO 02</span><strong>Evaluación inicial y seguridad</strong><small>Cómo observar el entorno, acercarse y reconocer señales de alarma.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+    <button type="button" class="learning-module" data-learning="rcp" onclick="openLearning('rcp')">
+      <span class="learning-module-icon">❤️</span><span class="learning-module-number">MÓDULO 03</span><strong>Paro cardíaco, RCP y DEA</strong><small>Reconocimiento temprano y activación de ayuda.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+    <button type="button" class="learning-module" data-learning="hemorragias" onclick="openLearning('hemorragias')">
+      <span class="learning-module-icon">🩹</span><span class="learning-module-number">MÓDULO 04</span><strong>Heridas y hemorragias</strong><small>Medidas iniciales para proteger y controlar el sangrado.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+    <button type="button" class="learning-module" data-learning="quemaduras" onclick="openLearning('quemaduras')">
+      <span class="learning-module-icon">🔥</span><span class="learning-module-number">MÓDULO 05</span><strong>Quemaduras y lesiones frecuentes</strong><small>Cuidados iniciales ante quemaduras y prevención de complicaciones.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+    <button type="button" class="learning-module" data-learning="otras" onclick="openLearning('otras')">
+      <span class="learning-module-icon">🛡️</span><span class="learning-module-number">MÓDULO 06</span><strong>Atragantamiento, convulsiones y prevención</strong><small>Qué observar, qué evitar y cómo preparar un entorno más seguro.</small><span class="learning-module-link">Estudiar módulo →</span>
+    </button>
+  </div>
+
+  <div id="learningPanel" class="learning-panel hidden" aria-live="polite"></div>
+
+  <div class="learning-quick-reference">
+    <div class="learning-section-heading compact"><div><span class="learning-kicker">REPASO RÁPIDO</span><h3>Tres ideas que debes recordar</h3><p>Una guía visual breve para tener presentes los pasos esenciales.</p></div></div>
+    <div class="learning-quick-grid">
+      <article><span class="quick-step-number">01</span><div class="quick-step-icon">🛑</div><h4>PROTEGER</h4><p>Observa si hay peligro para ti, la persona afectada o quienes están alrededor. No te expongas a riesgos.</p></article>
+      <article><span class="quick-step-number">02</span><div class="quick-step-icon">📞</div><h4>AVISAR</h4><p>Pide ayuda y comunica con claridad qué ocurrió, dónde estás y cuántas personas necesitan asistencia.</p><a href="tel:106">SAMU · 106</a></article>
+      <article><span class="quick-step-number">03</span><div class="quick-step-icon">🤝</div><h4>SOCORRER</h4><p>Ayuda dentro de tus conocimientos, respeta a la persona y sigue las indicaciones del operador de emergencias.</p></article>
+    </div>
+  </div>
+
+  <section class="learning-quiz-section" id="learningQuiz">
+    <div class="learning-quiz-heading">
+      <div><span class="learning-kicker">PON A PRUEBA LO QUE APRENDISTE</span><h3>Refuerza tu aprendizaje</h3><p>Responde las ocho preguntas. Al finalizar recibirás tu puntaje y una explicación para revisar cada respuesta.</p></div>
+      <div class="learning-quiz-emblem">✍️</div>
+    </div>
+    <form id="learningQuizForm">
+      <fieldset class="learning-question"><legend><span>01</span> ¿Qué debes hacer antes de acercarte a una persona accidentada?</legend>
+        <label><input type="radio" name="lq1" value="a"> Correr hacia ella sin observar el lugar.</label>
+        <label><input type="radio" name="lq1" value="b"> Revisar si el entorno es seguro para todos.</label>
+        <label><input type="radio" name="lq1" value="c"> Moverla inmediatamente.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>02</span> ¿Qué significa la secuencia PAS?</legend>
+        <label><input type="radio" name="lq2" value="a"> Proteger, Avisar y Socorrer.</label>
+        <label><input type="radio" name="lq2" value="b"> Preguntar, Acompañar y Sentar.</label>
+        <label><input type="radio" name="lq2" value="c"> Presionar, Aplicar y Salir.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>03</span> Una persona adulta no responde y no respira normalmente. ¿Cuál es la respuesta adecuada?</legend>
+        <label><input type="radio" name="lq3" value="a"> Darle agua y esperar unos minutos.</label>
+        <label><input type="radio" name="lq3" value="b"> Sentarla y comprobar si se recupera.</label>
+        <label><input type="radio" name="lq3" value="c"> Activar el 106, solicitar un DEA e iniciar la respuesta indicada por el operador y la formación recibida.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>04</span> ¿Qué medida inicial ayuda a controlar una hemorragia externa importante?</legend>
+        <label><input type="radio" name="lq4" value="a"> Colocar café o polvo sobre la herida.</label>
+        <label><input type="radio" name="lq4" value="b"> Aplicar presión directa y firme con una gasa o tela limpia.</label>
+        <label><input type="radio" name="lq4" value="c"> Retirar cualquier objeto incrustado.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>05</span> ¿Cómo se debe enfriar una quemadura térmica?</legend>
+        <label><input type="radio" name="lq5" value="a"> Con agua corriente fresca durante 20 minutos.</label>
+        <label><input type="radio" name="lq5" value="b"> Aplicando hielo directamente.</label>
+        <label><input type="radio" name="lq5" value="c"> Con pasta dental o aceite.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>06</span> Durante una convulsión, ¿qué acción debes evitar?</legend>
+        <label><input type="radio" name="lq6" value="a"> Retirar objetos peligrosos cercanos.</label>
+        <label><input type="radio" name="lq6" value="b"> Proteger la cabeza con algo suave si es posible.</label>
+        <label><input type="radio" name="lq6" value="c"> Sujetar con fuerza a la persona o introducir objetos en su boca.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>07</span> Si sospechas una fractura, ¿qué es lo más adecuado?</legend>
+        <label><input type="radio" name="lq7" value="a"> Intentar enderezar el hueso.</label>
+        <label><input type="radio" name="lq7" value="b"> Mantener la zona quieta y solicitar evaluación profesional.</label>
+        <label><input type="radio" name="lq7" value="c"> Hacer que la persona camine para probar la lesión.</label>
+      </fieldset>
+      <fieldset class="learning-question"><legend><span>08</span> ¿Qué medida ayuda a reducir el riesgo de infecciones al brindar primeros auxilios?</legend>
+        <label><input type="radio" name="lq8" value="a"> Higienizar las manos y utilizar protección adecuada según el riesgo.</label>
+        <label><input type="radio" name="lq8" value="b"> Compartir guantes usados.</label>
+        <label><input type="radio" name="lq8" value="c"> Tocar sangre directamente si la herida parece pequeña.</label>
+      </fieldset>
+      <div class="learning-quiz-actions"><button type="submit" class="learning-quiz-submit">Calificar mis respuestas</button><button type="button" class="learning-quiz-reset" id="resetLearningQuiz">Reiniciar cuestionario</button></div>
+      <div id="learningQuizResult" class="learning-quiz-result hidden" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <div class="learning-sources">
+    <div><span class="learning-kicker">PARA SEGUIR APRENDIENDO</span><h3>Fuentes de consulta</h3><p>Los contenidos son educativos y se han organizado tomando como referencia orientaciones de primeros auxilios y servicios oficiales.</p></div>
+    <a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener noreferrer">Guías AHA y Cruz Roja 2024 <span>↗</span></a>
+    <a href="https://www.gob.pe/1013" target="_blank" rel="noopener noreferrer">MINSA · Cómo solicitar atención del SAMU <span>↗</span></a>
+    <a href="https://www.gob.pe/institucion/minsa/noticias/1373698-minsa-samu-ensena-como-actuar-ante-una-emergencia-en-semana-santa" target="_blank" rel="noopener noreferrer">MINSA · Recomendaciones ante emergencias <span>↗</span></a>
+  </div>
+
+  <div class="learning-final-notice"><strong>Importante:</strong> AUXISALUD es una plataforma educativa. La lectura de estos contenidos no reemplaza un curso práctico, una evaluación profesional ni la atención de emergencia. No realices procedimientos para los que no tengas formación. En una emergencia médica en Perú, llama al <a href="tel:106">SAMU 106</a> y sigue las indicaciones del operador.</div>
 </section>
 
 <section id="proyecto" class="section">
