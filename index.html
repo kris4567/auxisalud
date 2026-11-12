@@ -873,10 +873,10 @@ body{overflow-x:hidden}
 
 <style id="interactive-emergency-enhancements">
 .emergency-explorer{max-width:1160px;margin:28px auto 18px;padding:22px 23px 19px;border:1px solid #d7ecef;border-radius:22px;background:linear-gradient(135deg,#f2fbfc,#fff 72%);box-shadow:0 12px 30px rgba(4,77,89,.055)}
-.explorer-heading,.quiz-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.explorer-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .explorer-kicker{font-size:.68rem;font-weight:900;letter-spacing:.14em;color:#008c9b}
-.explorer-heading h3,.quiz-heading h3{margin:5px 0 4px;color:#075a68;font-size:1.45rem;letter-spacing:-.025em}
-.explorer-heading p,.quiz-heading p{margin:0;color:#668087;font-size:.88rem}
+.explorer-heading h3{margin:5px 0 4px;color:#075a68;font-size:1.45rem;letter-spacing:-.025em}
+.explorer-heading p{margin:0;color:#668087;font-size:.88rem}
 .topic-counter{padding:8px 12px;border:1px solid #cde8eb;border-radius:999px;background:#fff;color:#087987;font-size:.75rem;font-weight:800;white-space:nowrap}
 .emergency-search{max-width:none!important;margin:18px 0 14px!important;display:flex;align-items:center;gap:10px}
 .emergency-search input{flex:1;min-width:0}
@@ -903,25 +903,12 @@ body{overflow-x:hidden}
 .detail-box[open] summary:after{content:"−";background:#075a68;color:#fff}
 .detail-box[open] summary{margin-bottom:12px}
 .detail-box .detail-summary-title{font-size:.98rem}
-.first-aid-quiz{max-width:1160px;margin:28px auto 0;padding:26px;border:1px solid #d5e9ec;border-radius:23px;background:linear-gradient(135deg,#f0fafb,#fff 70%);box-shadow:0 12px 30px rgba(4,77,89,.06)}
-.quiz-mark{width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:#dff5f6;color:#008c9b;font-size:1.5rem}
-.quiz-question{margin:19px 0 0;padding:17px;border:1px solid #dcecef;border-radius:15px;background:#fff;min-width:0}
-.quiz-question legend{padding:0 5px;color:#075a68;font-size:.95rem;font-weight:850;line-height:1.5}
-.quiz-question legend span{display:inline-grid;place-items:center;width:29px;height:29px;margin-right:7px;border-radius:9px;background:#e8f8fa;color:#008c9b;font-size:.74rem}
-.quiz-question label{display:flex;align-items:flex-start;gap:9px;margin:11px 0 0;padding:10px 12px;border:1px solid #e1edef;border-radius:11px;color:#526e76;font-size:.84rem;cursor:pointer}
-.quiz-question label:hover{background:#f3fbfc;border-color:#9ed9df}
-.quiz-question input{margin:3px 0 0;accent-color:#008c9b;flex:0 0 auto}
-.quiz-question label:has(input:checked){background:#eaf8f9;border-color:#65c1ca;color:#075a68}
-.quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.quiz-result{margin-top:17px;padding:16px;border-radius:14px;background:#e9f8f1;border:1px solid #bde7d2;color:#24684b}
-.quiz-result.incomplete{background:#fff8ea;border-color:#f1ddad;color:#7c5d20}
-.quiz-result ul{margin-top:10px;padding-left:20px;display:grid;gap:8px}
 @media(max-width:900px){.emergency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.emergency-explorer,.first-aid-quiz{padding:18px}.explorer-heading,.quiz-heading{align-items:flex-start}.topic-counter{font-size:.68rem;padding:7px 9px}.emergency-grid{grid-template-columns:1fr}.emergency-grid .emergency-card{min-height:0}.explorer-heading h3,.quiz-heading h3{font-size:1.25rem}}
+@media(max-width:620px){.emergency-explorer{padding:18px}.explorer-heading{align-items:flex-start}.topic-counter{font-size:.68rem;padding:7px 9px}.emergency-grid{grid-template-columns:1fr}.emergency-grid .emergency-card{min-height:0}.explorer-heading h3{font-size:1.25rem}}
 </style>
 
 <style id="learning-academy-styles">
-/* AULA DIGITAL AUXISALUD */
+/* Información básica: diseño de consulta, sin actividades ni cuestionarios */
 #aprende .learning-course-hero{max-width:1160px;margin:8px auto 26px;min-height:330px;display:grid;grid-template-columns:1.45fr .75fr;gap:24px;align-items:stretch;overflow:hidden;border-radius:26px;background:linear-gradient(118deg,#064b59 0%,#007987 68%,#10aeba 100%);box-shadow:0 18px 42px rgba(4,77,89,.14)}
 #aprende .learning-course-copy{padding:38px 42px;color:#fff;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 #aprende .learning-kicker{display:block;color:#078b98;font-size:.7rem;font-weight:850;letter-spacing:.13em}
@@ -930,8 +917,6 @@ body{overflow-x:hidden}
 #aprende .learning-course-copy p{max-width:680px;color:#e0f6f8;font-size:.96rem;margin:0}
 #aprende .learning-hero-points{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
 #aprende .learning-hero-points span{padding:7px 10px;border:1px solid rgba(255,255,255,.23);border-radius:999px;background:rgba(255,255,255,.10);font-size:.76rem;color:#f3ffff}
-#aprende .learning-jump{display:inline-flex;align-items:center;gap:12px;padding:11px 16px;border-radius:11px;background:#fff;color:#075a68;font-weight:800;font-size:.86rem}
-#aprende .learning-jump span{font-size:1.1rem}
 #aprende .learning-course-art{position:relative;min-height:280px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.18),transparent 45%)}
 #aprende .learning-art-orbit{position:absolute;width:250px;height:250px;border:1px solid rgba(255,255,255,.28);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.045),0 0 0 58px rgba(255,255,255,.035)}
 #aprende .learning-art-cross{position:relative;z-index:1;width:120px;height:120px;display:grid;place-items:center;border-radius:35px;color:#fff;font-size:4.2rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.34);box-shadow:0 20px 45px rgba(0,37,44,.18);backdrop-filter:blur(8px)}
@@ -939,78 +924,6 @@ body{overflow-x:hidden}
 #aprende .learning-art-note strong,#aprende .learning-art-note small{display:block}
 #aprende .learning-art-note strong{font-size:.84rem}
 #aprende .learning-art-note small{margin-top:3px;color:#d4f2f4;font-size:.72rem}
-#aprende .learning-summary-strip{max-width:1100px;margin:0 auto 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-#aprende .learning-summary-strip>div{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:11px;align-items:center;padding:16px;border:1px solid #dceff1;border-radius:15px;background:#fff;box-shadow:0 7px 20px rgba(4,77,89,.055)}
-#aprende .learning-summary-strip span{grid-row:1/3;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#e8f8fa;font-size:1.3rem}
-#aprende .learning-summary-strip strong{color:#075a68;font-size:.9rem}
-#aprende .learning-summary-strip small{color:#70878e;font-size:.73rem}
-#aprende .learning-section-heading{max-width:1100px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:end}
-#aprende .learning-section-heading h3,#aprende .learning-quiz-heading h3{margin:6px 0;color:#075a68;font-size:1.8rem;letter-spacing:-.03em}
-#aprende .learning-section-heading p,#aprende .learning-quiz-heading p{margin:0;color:#667f86;font-size:.88rem;max-width:760px}
-#aprende .learning-progress-card{max-width:1100px;margin:0 auto 18px;padding:17px 19px;border:1px solid #cfe8eb;border-radius:15px;background:linear-gradient(115deg,#f0fafb,#fff)}
-#aprende .learning-progress-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
-#aprende .learning-progress-top div{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-#aprende .learning-progress-top div span{font-size:.67rem;letter-spacing:.1em;font-weight:850;color:#078b98}
-#aprende .learning-progress-top strong{font-size:.87rem;color:#174a55}
-#aprende .learning-progress-top>span{font-size:.95rem;font-weight:900;color:#078b98}
-#aprende .learning-progress-track{height:9px;border-radius:99px;background:#dceef0;overflow:hidden}
-#aprende .learning-progress-track div{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#008c9b,#36c1ad);transition:width .25s ease}
-#aprende .learning-progress-card>small{display:block;margin-top:8px;color:#748990;font-size:.7rem}
-#aprende .learning-modules-grid{max-width:1100px;margin:0 auto 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-#aprende .learning-module{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-height:220px;padding:20px!important;text-align:left!important;background:#fff!important;color:#173f49!important;border:1px solid #dceff1!important;border-radius:17px!important;box-shadow:0 8px 24px rgba(4,77,89,.06)!important}
-#aprende .learning-module:hover,#aprende .learning-module.active{transform:translateY(-4px);border-color:#74cbd2!important;box-shadow:0 14px 30px rgba(4,77,89,.11)!important}
-#aprende .learning-module.completed:after{content:"✓ ESTUDIADO";position:absolute;top:15px;right:14px;padding:5px 8px;border-radius:999px;background:#e8f8f1;color:#21845e;font-size:.61rem;font-weight:900}
-#aprende .learning-module-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e8f8fa;font-size:1.55rem;margin-bottom:14px}
-#aprende .learning-module-number{font-size:.64rem;letter-spacing:.12em;color:#008c9b;font-weight:900}
-#aprende .learning-module strong{font-size:1rem;color:#075a68;margin:5px 0 7px}
-#aprende .learning-module small{font-size:.78rem;color:#70868d;line-height:1.45}
-#aprende .learning-module-link{font-size:.76rem;color:#008c9b;font-weight:850;margin-top:auto;padding-top:15px}
-#aprende .learning-panel{max-width:1100px;margin:20px auto 38px;padding:26px;border:1px solid #cde8eb;border-radius:20px;background:#fff;box-shadow:0 15px 38px rgba(4,77,89,.09);scroll-margin-top:100px}
-#aprende .learning-panel-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
-#aprende .learning-panel-icon{width:58px;height:58px;flex:none;display:grid;place-items:center;border-radius:17px;background:#e7f8fa;font-size:1.9rem}
-#aprende .learning-panel-head h3{margin:3px 0 5px;color:#075a68;font-size:1.55rem}
-#aprende .learning-panel-head p{margin:0;color:#617a82;font-size:.87rem}
-#aprende .learning-panel-body{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-#aprende .learning-content-box{padding:17px;border:1px solid #e0eff1;border-radius:14px;background:#fbfefe}
-#aprende .learning-content-box h4{margin:0 0 10px;color:#087987;font-size:.92rem}
-#aprende .learning-content-box ul{margin:0;padding-left:19px;display:grid;gap:7px}
-#aprende .learning-content-box li{font-size:.83rem;color:#4d6971;line-height:1.5}
-#aprende .learning-module-takeaway{margin-top:15px;padding:15px 17px;border-left:4px solid #12a4af;border-radius:0 12px 12px 0;background:#effafb;color:#315b64;font-size:.84rem}
-#aprende .learning-module-takeaway strong{color:#075a68}
-#aprende .learning-panel-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
-#aprende .learning-panel-actions button{font-size:.78rem!important;padding:10px 14px!important}
-#aprende .learning-panel-actions .learning-done{background:linear-gradient(135deg,#13835f,#25a879)!important}
-#aprende .learning-panel-actions .learning-close{background:#edf6f7!important;color:#315e67!important;box-shadow:none!important;border:1px solid #d7e9eb!important}
-#aprende .learning-module-sources{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-#aprende .learning-module-sources a{font-size:.73rem;color:#007c8c;text-decoration:underline}
-#aprende .learning-quick-reference{max-width:1100px;margin:42px auto 45px}
-#aprende .learning-section-heading.compact{margin-bottom:17px}
-#aprende .learning-quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-#aprende .learning-quick-grid article{position:relative;overflow:hidden;padding:22px;border:1px solid #dceff1;border-radius:17px;background:#fff;box-shadow:0 8px 22px rgba(4,77,89,.05)}
-#aprende .quick-step-number{position:absolute;right:14px;top:6px;font-size:2.4rem;font-weight:900;color:#eef6f7}
-#aprende .quick-step-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e8f8fa;font-size:1.5rem}
-#aprende .learning-quick-grid h4{margin:13px 0 6px;color:#075a68;letter-spacing:.08em}
-#aprende .learning-quick-grid p{font-size:.8rem;color:#617b83;margin:0 0 10px}
-#aprende .learning-quick-grid a{color:#008c9b;font-weight:900;font-size:.82rem}
-#aprende .learning-quiz-section{max-width:1100px;margin:0 auto 40px;padding:28px;border-radius:22px;background:linear-gradient(145deg,#eff9fa,#f9fcfd);border:1px solid #cfe8eb}
-#aprende .learning-quiz-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:17px}
-#aprende .learning-quiz-emblem{width:62px;height:62px;flex:none;display:grid;place-items:center;border-radius:19px;background:#fff;box-shadow:0 7px 20px rgba(4,77,89,.07);font-size:1.8rem}
-#aprende .learning-question{margin:0 0 13px;padding:16px 17px;border:1px solid #dfedef;border-radius:14px;background:#fff}
-#aprende .learning-question legend{padding:0 4px;color:#174a55;font-size:.87rem;font-weight:850}
-#aprende .learning-question legend span{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;border-radius:8px;background:#e5f7f8;color:#008494;font-size:.74rem}
-#aprende .learning-question label{display:flex;align-items:flex-start;gap:9px;margin:10px 0 0;padding:9px 10px;border-radius:9px;background:#f7fbfc;color:#58747b;font-size:.8rem;cursor:pointer}
-#aprende .learning-question label:hover{background:#edf8f9}
-#aprende .learning-question input{accent-color:#008c9b!important;margin:3px 0 0!important;padding:0!important;box-shadow:none!important;flex:none}
-#aprende .learning-quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
-#aprende .learning-quiz-actions button{font-size:.82rem!important}
-#aprende .learning-quiz-reset{background:#fff!important;color:#23616b!important;border:1px solid #cfe6e9!important;box-shadow:none!important}
-#aprende .learning-quiz-result{margin-top:16px;padding:17px;border-radius:13px;background:#fff;border:1px solid #cfe8eb;color:#315d65}
-#aprende .learning-quiz-result>strong{font-size:1.08rem;color:#075a68}
-#aprende .learning-quiz-result>p{margin:5px 0 11px;font-size:.85rem}
-#aprende .learning-quiz-result ul{margin:0;padding-left:20px;display:grid;gap:8px}
-#aprende .learning-quiz-result li{font-size:.79rem;line-height:1.5}
-#aprende .learning-quiz-result .answer-correct{color:#21845e}
-#aprende .learning-quiz-result .answer-review{color:#a46a1a}
 #aprende .learning-sources{max-width:1100px;margin:0 auto 22px;padding:20px;display:grid;grid-template-columns:1.4fr 1fr;gap:12px;border:1px solid #dceff1;border-radius:17px;background:#fff}
 #aprende .learning-sources h3{margin:5px 0;color:#075a68;font-size:1.15rem}
 #aprende .learning-sources p{margin:0;color:#6c8289;font-size:.75rem;max-width:500px}
@@ -1018,24 +931,8 @@ body{overflow-x:hidden}
 #aprende .learning-sources>a span{float:right}
 #aprende .learning-final-notice{max-width:1100px;margin:0 auto;padding:15px 17px;border-left:4px solid #e7ac45;border-radius:0 12px 12px 0;background:#fff8ea;color:#765d31;font-size:.8rem}
 #aprende .learning-final-notice a{color:#075a68;font-weight:900;text-decoration:underline}
-@media(max-width:900px){
- #aprende .learning-course-hero{grid-template-columns:1fr}
- #aprende .learning-course-art{min-height:220px}
- #aprende .learning-modules-grid{grid-template-columns:repeat(2,1fr)}
- #aprende .learning-sources{grid-template-columns:1fr 1fr}
- #aprende .learning-sources>div{grid-column:1/-1}
-}
-@media(max-width:620px){
- #aprende .learning-course-copy{padding:28px 23px}
- #aprende .learning-summary-strip{grid-template-columns:1fr}
- #aprende .learning-summary-strip>div{padding:12px}
- #aprende .learning-modules-grid,#aprende .learning-quick-grid,#aprende .learning-panel-body,#aprende .learning-sources{grid-template-columns:1fr}
- #aprende .learning-panel,#aprende .learning-quiz-section{padding:18px}
- #aprende .learning-panel-head{gap:10px}
- #aprende .learning-quiz-heading{align-items:flex-start}
- #aprende .learning-quiz-emblem{width:46px;height:46px;border-radius:14px}
- #aprende .learning-progress-top{align-items:flex-start}
-}
+@media(max-width:900px){#aprende .learning-course-hero{grid-template-columns:1fr}#aprende .learning-course-art{min-height:220px}#aprende .learning-sources{grid-template-columns:1fr 1fr}#aprende .learning-sources>div{grid-column:1/-1}}
+@media(max-width:620px){#aprende .learning-course-copy{padding:28px 23px}#aprende .learning-sources{grid-template-columns:1fr}}
 </style>
 
 <style id="auxisalud-guides-update">
@@ -1089,6 +986,20 @@ body{overflow-x:hidden}
 @media(max-width:600px){.visual-emergency-guide{padding:17px}.visual-emergency-steps{grid-template-columns:1fr}.visual-emergency-step{min-height:0}}
 </style>
 
+<style id="learning-practical-info-styles">
+#aprende .learning-emergency-contact{max-width:1100px;margin:28px auto 24px;padding:24px;border:1px solid #cfe8eb;border-radius:20px;background:linear-gradient(145deg,#f0fafb,#fff 72%);box-shadow:0 12px 30px rgba(4,77,89,.06)}
+#aprende .learning-emergency-intro h3{margin:6px 0;color:#075a68;font-size:1.55rem}
+#aprende .learning-emergency-intro p{margin:0;color:#617b83;font-size:.86rem;max-width:850px}
+#aprende .learning-emergency-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+#aprende .learning-emergency-numbers a{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid #d8ecef;border-radius:13px;background:#fff;color:#075a68}
+#aprende .learning-emergency-numbers strong{font-size:1.55rem;letter-spacing:.02em}
+#aprende .learning-emergency-numbers span{font-size:.78rem;font-weight:750;color:#55727a}
+#aprende .learning-call-checklist{border-top:1px solid #d9ecef;padding-top:14px}
+#aprende .learning-call-checklist h4{margin:0 0 8px;color:#087987;font-size:.92rem}
+#aprende .learning-call-checklist ul{margin:0;padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:7px 22px}
+#aprende .learning-call-checklist li{font-size:.81rem;color:#526f77;line-height:1.45}
+@media(max-width:620px){#aprende .learning-emergency-contact{padding:18px}#aprende .learning-emergency-numbers{grid-template-columns:1fr}#aprende .learning-call-checklist ul{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -1131,7 +1042,7 @@ body{overflow-x:hidden}
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
   <nav id="nav" aria-label="Navegación principal">
   <a href="#inicio" onclick="showSection('inicio');return false;">Inicio</a>
-  <a href="#aprende" onclick="showSection('aprende');return false;">Fundamentos</a>
+  <a href="#aprende" onclick="showSection('aprende');return false;">Información básica</a>
   <a href="#emergencias" onclick="showSection('emergencias');return false;">Emergencias</a>
   <a href="#guias" onclick="showSection('guias');return false;">Guías y recomendaciones</a>
   <a href="#servicios" onclick="showSection('servicios');return false;">Servicios a domicilio</a>
@@ -1185,8 +1096,8 @@ body{overflow-x:hidden}
 
   <div class="callout">
     <span class="callout-icon">💡</span>
-    <div><h3>Una plataforma que crecerá contigo</h3><p>Podremos incorporar nuevos procedimientos, imágenes, videos, cuestionarios, encuestas y resultados conforme avances con tu documento.</p></div>
-    <button class="secondary" onclick="location.hash='admin'">Administrar →</button>
+    <div><h3>Información práctica para el día a día</h3><p>Consulta orientaciones sobre primeros auxilios, prevención de accidentes, señales de alarma y cómo solicitar ayuda profesional.</p></div>
+    <button class="secondary" onclick="showSection('guias')">Ver guías y recomendaciones →</button>
   </div>
 </section>
 <section id="aprende" class="section">
@@ -1201,6 +1112,28 @@ body{overflow-x:hidden}
 <article class="guide-info-card"><span class="guide-card-icon">🧤</span><h3>Bioseguridad y prevención de infecciones</h3><ul><li>Lávate las manos con agua y jabón antes y después de brindar ayuda cuando sea posible.</li><li>Utiliza guantes desechables si existe riesgo de contacto con sangre o fluidos.</li><li>Evita tocar directamente heridas y mucosas.</li><li>Desecha los materiales contaminados de manera segura.</li><li>No reutilices guantes ni material descartable.</li></ul></article>
 <article class="guide-info-card"><span class="guide-card-icon">🧰</span><h3>¿Qué debe contener un botiquín básico?</h3><p>Debe mantenerse limpio, ordenado, accesible y revisarse periódicamente. Puede incluir:</p><ul><li>Guantes descartables y mascarillas.</li><li>Gasas estériles, apósitos y vendas.</li><li>Cinta adhesiva médica y tijera de punta roma.</li><li>Suero fisiológico para limpieza externa de pequeñas heridas.</li><li>Termómetro, bolsas para residuos y teléfonos de emergencia.</li></ul><p class="guide-caution">No guardes medicamentos para automedicación ni productos vencidos. El botiquín no sustituye la atención profesional.</p></article>
 <article class="guide-info-card"><span class="guide-card-icon">🚫</span><h3>Acciones que debes evitar</h3><ul><li>No mover a una persona con posible lesión de cuello o columna, salvo peligro inmediato.</li><li>No dar alimentos, bebidas o medicamentos a una persona inconsciente.</li><li>No retirar objetos incrustados ni intentar acomodar huesos o articulaciones.</li><li>No aplicar café, pasta dental, alcohol, aceites ni remedios caseros en heridas o quemaduras.</li><li>No abandonar a la persona si puedes permanecer en un lugar seguro.</li></ul></article>
+</div>
+<div class="learning-emergency-contact">
+  <div class="learning-emergency-intro">
+    <span class="learning-kicker">CONTACTOS DE EMERGENCIA EN PERÚ</span>
+    <h3>¿Necesitas pedir ayuda?</h3>
+    <p>Ante una situación grave, comunícate con el servicio correspondiente. El SAMU brinda atención médica de emergencia mediante la línea gratuita 106, disponible las 24 horas en las zonas donde opera.</p>
+  </div>
+  <div class="learning-emergency-numbers">
+    <a href="tel:106"><strong>106</strong><span>SAMU · Emergencias médicas</span></a>
+    <a href="tel:116"><strong>116</strong><span>Bomberos</span></a>
+    <a href="tel:105"><strong>105</strong><span>Policía</span></a>
+  </div>
+  <div class="learning-call-checklist">
+    <h4>¿Qué información debes comunicar?</h4>
+    <ul>
+      <li>Dirección exacta, distrito y una referencia fácil de reconocer.</li>
+      <li>Qué ocurrió y hace cuánto tiempo, si lo sabes.</li>
+      <li>Cuántas personas necesitan ayuda y qué señales observas.</li>
+      <li>Si hay peligros alrededor, como fuego, electricidad, tránsito o sustancias químicas.</li>
+      <li>Tu número de contacto. Mantén la llamada activa y sigue las indicaciones del operador.</li>
+    </ul>
+  </div>
 </div>
 <div class="learning-final-notice"><strong>Recuerda:</strong> estos contenidos no reemplazan la evaluación ni el tratamiento profesional. La capacitación práctica es especialmente importante para RCP, uso de DEA, control de hemorragias y atención del atragantamiento.</div>
 <div class="learning-sources"><div><span class="learning-kicker">FUENTES DE CONSULTA</span><h3>Información para profundizar</h3><p>Consulta recomendaciones oficiales y actualizadas.</p></div><a href="https://www.gob.pe/1013" target="_blank" rel="noopener noreferrer">MINSA · SAMU Perú <span>↗</span></a><a href="https://www.who.int/health-topics/first-aid" target="_blank" rel="noopener noreferrer">OMS · Primeros auxilios <span>↗</span></a><a href="https://www.redcross.org/take-a-class/first-aid" target="_blank" rel="noopener noreferrer">Cruz Roja · Formación <span>↗</span></a></div>
