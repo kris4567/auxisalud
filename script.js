@@ -240,6 +240,23 @@ function listHTML(items) {
   return items.map(item => "<li>"+escapeHTML(item)+"</li>").join("");
 }
 
+const visualEmergencyGuides = {
+  "RCP": {label:"Secuencia básica para adultos",steps:[["01","Comprueba la seguridad","Verifica que no haya riesgos antes de acercarte."],["02","Revisa respuesta y respiración","Si no responde y no respira normalmente, actúa sin demora."],["03","Activa la emergencia","Llama al SAMU 106, usa el altavoz y pide un DEA."],["04","Inicia compresiones","Presiona el centro del pecho a 100–120 por minuto y 5–6 cm en adultos."],["05","Usa el DEA y continúa","Enciéndelo, sigue sus indicaciones y continúa hasta que llegue ayuda o la persona reaccione."]],caution:"Esta secuencia es para adultos. En niños y bebés la técnica cambia. Sigue las instrucciones del operador y realiza un curso práctico."},
+  "Hemorragias": {label:"Control inicial del sangrado externo",steps:[["01","Protégete","Asegura el lugar y utiliza guantes o una barrera si están disponibles."],["02","Pide ayuda","Si el sangrado es abundante, llama al SAMU 106 o pide a alguien que lo haga."],["03","Presiona directamente","Coloca una gasa o tela limpia sobre la herida y mantén presión firme y continua."],["04","No retires lo incrustado","Si hay un objeto, no lo extraigas; presiona alrededor y espera ayuda."]],caution:"No retires repetidamente la tela para revisar ni improvises torniquetes. Si la hemorragia es grave, la asistencia de emergencia es prioritaria."},
+  "Fracturas": {label:"Protección de una posible fractura",steps:[["01","Evita mover","Pide a la persona que permanezca quieta y observa la lesión."],["02","Sostén la posición","Apoya la zona tal como está, sin enderezar ni acomodar el hueso."],["03","Cubre si hay herida","Usa una gasa o tela limpia. No presiones sobre hueso expuesto u objeto incrustado."],["04","Solicita evaluación","Llama al 106 si es grave, abierta o afecta cuello, columna, pelvis, cadera o muslo."]],caution:"No obligues a caminar ni intentes comprobar la lesión moviendo la extremidad. Si sospechas lesión de columna, no traslades a la persona salvo peligro inmediato."},
+  "Quemaduras": {label:"Primeros cuidados ante quemadura térmica",steps:[["01","Aléjate del peligro","Detén el contacto con la fuente de calor sin exponerte."],["02","Enfría con agua","Deja correr agua fresca sobre la quemadura durante 20 minutos."],["03","Retira lo que no esté pegado","Quita anillos o prendas ajustadas cercanas; no arranques ropa adherida."],["04","Cubre sin apretar","Usa un apósito limpio y no adherente. Busca valoración si es extensa, profunda o afecta zonas delicadas."]],caution:"No uses hielo, pasta dental, aceites ni remedios caseros. Las quemaduras eléctricas o químicas requieren atención médica urgente."},
+  "Atragantamiento": {label:"Obstrucción grave en adultos conscientes",steps:[["01","Identifica la gravedad","Si puede hablar, respirar y toser con fuerza, anímala a toser y vigila."],["02","Pide ayuda","Si no puede hablar, respirar o toser eficazmente, llama al SAMU 106."],["03","Da golpes en la espalda","Inclina a la persona hacia delante y aplica hasta 5 golpes entre los omóplatos."],["04","Alterna si no se libera","Realiza hasta 5 compresiones abdominales y alterna ambas maniobras."]],caution:"La secuencia mostrada es para adultos conscientes. En bebés, niños, embarazadas y otras situaciones la técnica cambia. Si pierde el conocimiento, inicia la respuesta de RCP siguiendo al operador."}
+};
+
+function renderVisualEmergencyGuide(item) {
+  const guide = visualEmergencyGuides[item.name];
+  if (!guide) return "";
+  const steps = guide.steps.map(step =>
+    '<article class="visual-emergency-step"><span class="visual-step-number">' + step[0] + '</span><div><h4>' + escapeHTML(step[1]) + '</h4><p>' + escapeHTML(step[2]) + '</p></div></article>'
+  ).join("");
+  return '<section class="visual-emergency-guide"><div class="visual-guide-heading"><span>GUÍA RÁPIDA ILUSTRADA</span><h4>' + escapeHTML(guide.label) + '</h4><p>Una secuencia visual para recordar el orden general de actuación.</p></div><div class="visual-emergency-steps">' + steps + '</div><p class="visual-guide-caution"><strong>Importante:</strong> ' + escapeHTML(guide.caution) + '</p></section>';
+}
+
 function showDetail(index) {
   const item = emergencies[index];
   const panel = document.getElementById("detail");
@@ -256,7 +273,7 @@ function showDetail(index) {
         <div><span class="detail-tag">${escapeHTML(item.category || "Primeros auxilios")}</span><h3>${escapeHTML(item.name)}</h3><p class="detail-summary">${escapeHTML(item.desc)}</p></div>
       </div>
     </div>
-    <div class="detail-grid">
+    ${renderVisualEmergencyGuide(item)}\n    <div class="detail-grid">
       <section class="detail-box"><h4>🔎 ¿Cómo reconocerla?</h4><ul>${listHTML(item.signs || [])}</ul></section>
       <section class="detail-box"><h4>✅ ¿Qué hacer?</h4><ol>${listHTML(actions)}</ol></section>
       <section class="detail-box avoid"><h4>⛔ ¿Qué evitar?</h4><ul>${listHTML(item.avoid || [])}</ul></section>
