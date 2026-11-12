@@ -163,12 +163,12 @@ const defaultEmergencies = [
 
 const emergencyVisuals = {
   "RCP": {src:"https://images.pexels.com/photos/34104789/pexels-photo-34104789/free-photo-of-women-practicing-cpr-on-dummies-in-training-session.jpeg?auto=compress&cs=tinysrgb&w=900",tone:"tone-red",label:"REANIMACIÓN"},
-  "Hemorragias": {src:"https://www.centreantipoisons.be/app/uploads/2025/01/pexels-kind-gevallen-scaled.jpg",tone:"tone-red",label:"SANGRADO"},
-  "Fracturas": {src:"https://www.rd-westpfalz.drk.de/fileadmin/user_upload/Leistungen/Zelck-Rettungsdienst-DRK-Bitburg-hq-Q-13.jpg",tone:"tone-blue",label:"LESIONES"},
-  "Caídas": {src:"https://magazine.medlineplus.gov/images/uploads/multimedia/aging-in-place-ENG.jpg",tone:"tone-amber",label:"PREVENCIÓN DE CAÍDAS"},
+  "Hemorragias": {src:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",tone:"tone-red",label:"SANGRADO"},
+  "Fracturas": {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=900&q=80",tone:"tone-blue",label:"LESIONES"},
+  "Caídas": {src:"https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",tone:"tone-amber",label:"PREVENCIÓN DE CAÍDAS"},
   "Quemaduras": {src:"https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&amp;fit=crop&amp;w=900&amp;q=80",tone:"tone-orange",label:"QUEMADURAS"},
   "Atragantamiento": {src:"https://images.pexels.com/photos/34104789/pexels-photo-34104789/free-photo-of-women-practicing-cpr-on-dummies-in-training-session.jpeg?auto=compress&cs=tinysrgb&w=900",tone:"tone-amber",label:"OBSTRUCCIÓN DE VÍA AÉREA"},
-  "Convulsiones": {src:"https://www.rd-westpfalz.drk.de/fileadmin/user_upload/Leistungen/Zelck-Rettungsdienst-DRK-Bitburg-hq-Q-13.jpg",tone:"tone-violet",label:"CONVULSIONES"},
+  "Convulsiones": {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=900&q=80",tone:"tone-violet",label:"CONVULSIONES"},
   "Desmayo": {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&amp;fit=crop&amp;w=900&amp;q=80",tone:"tone-blue",label:"PÉRDIDA DE CONCIENCIA"},
   "Accidente cerebrovascular (ACV)": {src:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",tone:"tone-red",label:"SEÑALES DE ACV"}
 };
