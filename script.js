@@ -161,6 +161,18 @@ const defaultEmergencies = [
   }
 ];
 
+const emergencyVisuals = {
+  "RCP": {src:"https://images.pexels.com/photos/34104789/pexels-photo-34104789/free-photo-of-women-practicing-cpr-on-dummies-in-training-session.jpeg?auto=compress&cs=tinysrgb&w=900",tone:"tone-red",label:"REANIMACIÓN"},
+  "Hemorragias": {src:"https://www.centreantipoisons.be/app/uploads/2025/01/pexels-kind-gevallen-scaled.jpg",tone:"tone-red",label:"SANGRADO"},
+  "Fracturas": {src:"https://www.rd-westpfalz.drk.de/fileadmin/user_upload/Leistungen/Zelck-Rettungsdienst-DRK-Bitburg-hq-Q-13.jpg",tone:"tone-blue",label:"LESIONES"},
+  "Caídas": {src:"https://magazine.medlineplus.gov/images/uploads/multimedia/aging-in-place-ENG.jpg",tone:"tone-amber",label:"PREVENCIÓN DE CAÍDAS"},
+  "Quemaduras": {src:"https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&amp;fit=crop&amp;w=900&amp;q=80",tone:"tone-orange",label:"QUEMADURAS"},
+  "Atragantamiento": {src:"https://images.pexels.com/photos/34104789/pexels-photo-34104789/free-photo-of-women-practicing-cpr-on-dummies-in-training-session.jpeg?auto=compress&cs=tinysrgb&w=900",tone:"tone-amber",label:"OBSTRUCCIÓN DE VÍA AÉREA"},
+  "Convulsiones": {src:"https://www.rd-westpfalz.drk.de/fileadmin/user_upload/Leistungen/Zelck-Rettungsdienst-DRK-Bitburg-hq-Q-13.jpg",tone:"tone-violet",label:"CONVULSIONES"},
+  "Desmayo": {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&amp;fit=crop&amp;w=900&amp;q=80",tone:"tone-blue",label:"PÉRDIDA DE CONCIENCIA"},
+  "Accidente cerebrovascular (ACV)": {src:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",tone:"tone-red",label:"SEÑALES DE ACV"}
+};
+
 let emergencies = [...defaultEmergencies];
 
 function escapeHTML(value) {
@@ -199,16 +211,19 @@ function renderEmergencies(list = emergencies) {
   list.forEach(item => {
     const index = emergencies.indexOf(item);
     const card = document.createElement("article");
-    card.className = "emergency-card";
+    const visual = emergencyVisuals[item.name] || {src:"https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",tone:"tone-teal",label:"PRIMEROS AUXILIOS"};
+    card.className = "emergency-card " + visual.tone;
     card.tabIndex = 0;
     card.setAttribute("role","button");
     card.setAttribute("aria-label","Consultar "+item.name);
     card.innerHTML = `
-      <div class="icon">${escapeHTML(item.icon)}</div>
-      <span class="emergency-card-label">${escapeHTML(item.category || "Primeros auxilios")}</span>
-      <h3>${escapeHTML(item.name)}</h3>
-      <p>${escapeHTML(item.desc)}</p>
-      <div class="emergency-card-more">Ver guía completa →</div>`;
+      <div class="emergency-card-media"><img src="${escapeHTML(visual.src)}" alt="Imagen ilustrativa de ${escapeHTML(item.name)}" loading="lazy" decoding="async"><span>${escapeHTML(visual.label)}</span></div>
+      <div class="emergency-card-body">
+        <div class="icon">${escapeHTML(item.icon)}</div>
+        <h3>${escapeHTML(item.name)}</h3>
+        <p>${escapeHTML(item.desc)}</p>
+        <div class="emergency-card-more">Consultar recomendaciones →</div>
+      </div>`;
     card.addEventListener("click", () => showDetail(index));
     card.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
