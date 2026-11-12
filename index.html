@@ -1038,6 +1038,25 @@ body{overflow-x:hidden}
 }
 </style>
 
+<style id="auxisalud-guides-update">
+#guias .guides-hero{max-width:1160px;margin:0 auto 30px;padding:34px 38px;border-radius:24px;display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center;color:#fff;background:linear-gradient(120deg,#064d5b,#008c9b 72%,#16b9c7);box-shadow:0 16px 38px rgba(4,77,89,.13)}
+#guias .guides-hero h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;color:#fff;margin:12px 0}
+#guias .guides-hero p{max-width:700px;color:#e4f8fa;margin:0}
+.guides-hero-symbol{font-size:6rem;text-align:center}
+.guide-content-grid{max-width:1160px;margin:26px auto 36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.guide-info-card{padding:24px;border:1px solid #d9ecef;border-radius:18px;background:#fff;box-shadow:0 9px 26px rgba(4,77,89,.06)}
+.guide-card-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e8f8fa;font-size:1.5rem;margin-bottom:14px}
+.guide-info-card h3{color:#075a68;margin:0 0 10px;font-size:1.15rem}
+.guide-info-card p,.guide-info-card li{color:#58727a;font-size:.92rem}
+.guide-info-card ul,.guide-info-card ol{padding-left:21px;margin:10px 0}
+.guide-info-card li{margin:7px 0}
+.guide-info-card a{color:#007c8b;text-decoration:underline}
+.guide-caution{border-left:4px solid #e6ae4a;padding:10px 12px;background:#fff8e9;border-radius:0 9px 9px 0;color:#765c2b!important}
+#aprende .learning-course-hero{margin-bottom:28px}
+#aprende .learning-hero-points{display:flex;flex-wrap:wrap;gap:10px}
+#aprende .learning-hero-points span{font-size:.82rem;color:#087786;background:#e8f8fa;border:1px solid #cce9ed;border-radius:999px;padding:7px 11px}
+@media(max-width:760px){.guide-content-grid{grid-template-columns:1fr}#guias .guides-hero{grid-template-columns:1fr;padding:28px}.guides-hero-symbol{display:none}}
+</style>
 </head>
 <body>
 
@@ -1081,10 +1100,11 @@ body{overflow-x:hidden}
   <nav id="nav" aria-label="Navegación principal">
   <a href="#inicio" onclick="showSection('inicio');return false;">Inicio</a>
   <a href="#emergencias" onclick="showSection('emergencias');return false;">Emergencias</a>
-  <a href="#aprende" onclick="showSection('aprende');return false;">Aprende</a>
+  <a href="#guias" onclick="showSection('guias');return false;">Guías y recomendaciones</a>
+  <a href="#aprende" onclick="showSection('aprende');return false;">Fundamentos</a>
   <a href="#servicios" onclick="showSection('servicios');return false;">Servicios a domicilio</a>
   <a href="#proyecto" onclick="showSection('proyecto');return false;">Proyecto</a>
-  <a href="#admin" onclick="showSection('admin');return false;">Administrar</a>
+
   <a href="#contacto-auxi" onclick="showSection('servicios');setTimeout(()=>document.getElementById('contacto-auxi').scrollIntoView({behavior:'smooth',block:'center'}),100);return false;">Contacto</a>
 </nav>
 </header>
@@ -1161,165 +1181,46 @@ body{overflow-x:hidden}
     <div id="emergencyFilters" class="emergency-filters" aria-label="Categorías de emergencias"></div>
   </div>
   <div id="emergencyGrid" class="grid emergency-grid"></div>
-  <div id="emptySearch" class="empty hidden">No encontramos esa categoría. Puedes agregarla desde <button onclick="location.hash='admin'">Administrar contenido</button>.</div>
+  <div id="emptySearch" class="empty hidden">No encontramos resultados. Prueba con otra palabra o selecciona una categoría diferente.</div>
   <div id="detail" class="detail hidden"></div>
   <div class="emergency-general-note"><strong>Recuerda:</strong> esta información es educativa y no reemplaza un curso certificado, una evaluación clínica ni las indicaciones del personal de emergencia. Prioriza tu seguridad, pide ayuda y sigue las instrucciones del operador del SAMU.</div>
-  <section class="first-aid-quiz" id="firstAidQuiz">
-    <div class="quiz-heading"><div><span class="explorer-kicker">PON A PRUEBA LO APRENDIDO</span><h3>¿Qué harías en una emergencia?</h3><p>Responde estas cuatro preguntas rápidas y revisa tu resultado.</p></div><div class="quiz-mark" aria-hidden="true">✦</div></div>
-    <form id="emergencyQuizForm">
-      <fieldset class="quiz-question"><legend><span>01</span> Una persona adulta no responde y no respira normalmente. ¿Qué debes hacer?</legend>
-        <label><input type="radio" name="q1" value="a"> Darle agua y esperar.</label>
-        <label><input type="radio" name="q1" value="b"> Llamar al 106, pedir un DEA e iniciar RCP siguiendo las indicaciones.</label>
-        <label><input type="radio" name="q1" value="c"> Sentarla y observar.</label>
-      </fieldset>
-      <fieldset class="quiz-question"><legend><span>02</span> ¿Cuál es la primera medida ante una hemorragia externa importante?</legend>
-        <label><input type="radio" name="q2" value="a"> Aplicar presión firme y directa con una gasa o tela limpia.</label>
-        <label><input type="radio" name="q2" value="b"> Colocar café sobre la herida.</label>
-        <label><input type="radio" name="q2" value="c"> Retirar cualquier objeto incrustado.</label>
-      </fieldset>
-      <fieldset class="quiz-question"><legend><span>03</span> ¿Cómo se enfría una quemadura térmica?</legend>
-        <label><input type="radio" name="q3" value="a"> Con hielo directamente.</label>
-        <label><input type="radio" name="q3" value="b"> Con pasta dental.</label>
-        <label><input type="radio" name="q3" value="c"> Con agua corriente fresca durante 20 minutos.</label>
-      </fieldset>
-      <fieldset class="quiz-question"><legend><span>04</span> Si un adulto se atraganta y no puede hablar, respirar ni toser eficazmente, ¿qué corresponde?</legend>
-        <label><input type="radio" name="q4" value="a"> Darle agua inmediatamente.</label>
-        <label><input type="radio" name="q4" value="b"> Pedir ayuda y aplicar la secuencia de primeros auxilios para obstrucción grave en adultos.</label>
-        <label><input type="radio" name="q4" value="c"> Introducir los dedos a ciegas en su boca.</label>
-      </fieldset>
-      <div class="quiz-actions"><button class="primary" type="submit">Revisar mis respuestas</button><button class="secondary" type="button" id="resetEmergencyQuiz">Volver a intentar</button></div>
-      <div class="quiz-result hidden" id="emergencyQuizResult" role="status" aria-live="polite"></div>
-    </form>
-  </section>
+  
 </section>
 
 <section id="aprende" class="section">
-  <div class="portal-section-label">AULA DIGITAL · APRENDE Y REFUERZA</div>
-
-  <div class="learning-course-hero">
-    <div class="learning-course-copy">
-      <span class="learning-kicker">AUXISALUD · FORMACIÓN BÁSICA</span>
-      <h2>Aprende a actuar con calma y seguridad</h2>
-      <p>Explora contenidos sencillos sobre primeros auxilios, reconoce señales de alarma y repasa qué puedes hacer mientras llega la ayuda profesional. Avanza a tu ritmo y comprueba lo que aprendiste al final.</p>
-      <div class="learning-hero-points"><span>✓ Explicaciones claras</span><span>✓ Módulos prácticos</span><span>✓ Evaluación interactiva</span></div>
-      <a class="learning-jump" href="#learningModules">Comenzar a aprender <span>↓</span></a>
-    </div>
-    <div class="learning-course-art" aria-hidden="true">
-      <div class="learning-art-orbit"></div>
-      <div class="learning-art-cross">✚</div>
-      <div class="learning-art-note"><strong>Aprender también salva vidas</strong><small>Conocer los límites y pedir ayuda a tiempo es parte de los primeros auxilios.</small></div>
-    </div>
-  </div>
-
-  <div class="learning-summary-strip">
-    <div><span>📚</span><strong>6 módulos</strong><small>Temas para estudiar</small></div>
-    <div><span>🧭</span><strong>Ruta guiada</strong><small>De lo básico a la acción</small></div>
-    <div><span>✍️</span><strong>8 preguntas</strong><small>Para reforzar lo aprendido</small></div>
-  </div>
-
-  <div class="learning-section-heading" id="learningModules">
-    <div><span class="learning-kicker">RUTA DE APRENDIZAJE</span><h3>Explora los módulos</h3><p>Selecciona una tarjeta para abrir la explicación completa. Al terminar, márcala como estudiada para llevar un control de tu avance durante esta visita.</p></div>
-  </div>
-
-  <div class="learning-progress-card">
-    <div class="learning-progress-top"><div><span>📈 TU AVANCE</span><strong id="learningProgressText">0 de 6 módulos estudiados</strong></div><span id="learningProgressPercent">0%</span></div>
-    <div class="learning-progress-track"><div id="learningProgressFill"></div></div>
-    <small>El avance se mantiene mientras la página permanezca abierta; se reinicia al actualizarla.</small>
-  </div>
-
-  <div class="learning-modules-grid" id="learningModulesGrid">
-    <button type="button" class="learning-module" data-learning="fundamentos" onclick="openLearning('fundamentos')">
-      <span class="learning-module-icon">🧠</span><span class="learning-module-number">MÓDULO 01</span><strong>Fundamentos de primeros auxilios</strong><small>Qué son, para qué sirven y cuáles son sus objetivos.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-    <button type="button" class="learning-module" data-learning="evaluacion" onclick="openLearning('evaluacion')">
-      <span class="learning-module-icon">🔎</span><span class="learning-module-number">MÓDULO 02</span><strong>Evaluación inicial y seguridad</strong><small>Cómo observar el entorno, acercarse y reconocer señales de alarma.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-    <button type="button" class="learning-module" data-learning="rcp" onclick="openLearning('rcp')">
-      <span class="learning-module-icon">❤️</span><span class="learning-module-number">MÓDULO 03</span><strong>Paro cardíaco, RCP y DEA</strong><small>Reconocimiento temprano y activación de ayuda.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-    <button type="button" class="learning-module" data-learning="hemorragias" onclick="openLearning('hemorragias')">
-      <span class="learning-module-icon">🩹</span><span class="learning-module-number">MÓDULO 04</span><strong>Heridas y hemorragias</strong><small>Medidas iniciales para proteger y controlar el sangrado.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-    <button type="button" class="learning-module" data-learning="quemaduras" onclick="openLearning('quemaduras')">
-      <span class="learning-module-icon">🔥</span><span class="learning-module-number">MÓDULO 05</span><strong>Quemaduras y lesiones frecuentes</strong><small>Cuidados iniciales ante quemaduras y prevención de complicaciones.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-    <button type="button" class="learning-module" data-learning="otras" onclick="openLearning('otras')">
-      <span class="learning-module-icon">🛡️</span><span class="learning-module-number">MÓDULO 06</span><strong>Atragantamiento, convulsiones y prevención</strong><small>Qué observar, qué evitar y cómo preparar un entorno más seguro.</small><span class="learning-module-link">Estudiar módulo →</span>
-    </button>
-  </div>
-
-  <div id="learningPanel" class="learning-panel hidden" aria-live="polite"></div>
-
-  <div class="learning-quick-reference">
-    <div class="learning-section-heading compact"><div><span class="learning-kicker">REPASO RÁPIDO</span><h3>Tres ideas que debes recordar</h3><p>Una guía visual breve para tener presentes los pasos esenciales.</p></div></div>
-    <div class="learning-quick-grid">
-      <article><span class="quick-step-number">01</span><div class="quick-step-icon">🛑</div><h4>PROTEGER</h4><p>Observa si hay peligro para ti, la persona afectada o quienes están alrededor. No te expongas a riesgos.</p></article>
-      <article><span class="quick-step-number">02</span><div class="quick-step-icon">📞</div><h4>AVISAR</h4><p>Pide ayuda y comunica con claridad qué ocurrió, dónde estás y cuántas personas necesitan asistencia.</p><a href="tel:106">SAMU · 106</a></article>
-      <article><span class="quick-step-number">03</span><div class="quick-step-icon">🤝</div><h4>SOCORRER</h4><p>Ayuda dentro de tus conocimientos, respeta a la persona y sigue las indicaciones del operador de emergencias.</p></article>
-    </div>
-  </div>
-
-  <section class="learning-quiz-section" id="learningQuiz">
-    <div class="learning-quiz-heading">
-      <div><span class="learning-kicker">PON A PRUEBA LO QUE APRENDISTE</span><h3>Refuerza tu aprendizaje</h3><p>Responde las ocho preguntas. Al finalizar recibirás tu puntaje y una explicación para revisar cada respuesta.</p></div>
-      <div class="learning-quiz-emblem">✍️</div>
-    </div>
-    <form id="learningQuizForm">
-      <fieldset class="learning-question"><legend><span>01</span> ¿Qué debes hacer antes de acercarte a una persona accidentada?</legend>
-        <label><input type="radio" name="lq1" value="a"> Correr hacia ella sin observar el lugar.</label>
-        <label><input type="radio" name="lq1" value="b"> Revisar si el entorno es seguro para todos.</label>
-        <label><input type="radio" name="lq1" value="c"> Moverla inmediatamente.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>02</span> ¿Qué significa la secuencia PAS?</legend>
-        <label><input type="radio" name="lq2" value="a"> Proteger, Avisar y Socorrer.</label>
-        <label><input type="radio" name="lq2" value="b"> Preguntar, Acompañar y Sentar.</label>
-        <label><input type="radio" name="lq2" value="c"> Presionar, Aplicar y Salir.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>03</span> Una persona adulta no responde y no respira normalmente. ¿Cuál es la respuesta adecuada?</legend>
-        <label><input type="radio" name="lq3" value="a"> Darle agua y esperar unos minutos.</label>
-        <label><input type="radio" name="lq3" value="b"> Sentarla y comprobar si se recupera.</label>
-        <label><input type="radio" name="lq3" value="c"> Activar el 106, solicitar un DEA e iniciar la respuesta indicada por el operador y la formación recibida.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>04</span> ¿Qué medida inicial ayuda a controlar una hemorragia externa importante?</legend>
-        <label><input type="radio" name="lq4" value="a"> Colocar café o polvo sobre la herida.</label>
-        <label><input type="radio" name="lq4" value="b"> Aplicar presión directa y firme con una gasa o tela limpia.</label>
-        <label><input type="radio" name="lq4" value="c"> Retirar cualquier objeto incrustado.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>05</span> ¿Cómo se debe enfriar una quemadura térmica?</legend>
-        <label><input type="radio" name="lq5" value="a"> Con agua corriente fresca durante 20 minutos.</label>
-        <label><input type="radio" name="lq5" value="b"> Aplicando hielo directamente.</label>
-        <label><input type="radio" name="lq5" value="c"> Con pasta dental o aceite.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>06</span> Durante una convulsión, ¿qué acción debes evitar?</legend>
-        <label><input type="radio" name="lq6" value="a"> Retirar objetos peligrosos cercanos.</label>
-        <label><input type="radio" name="lq6" value="b"> Proteger la cabeza con algo suave si es posible.</label>
-        <label><input type="radio" name="lq6" value="c"> Sujetar con fuerza a la persona o introducir objetos en su boca.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>07</span> Si sospechas una fractura, ¿qué es lo más adecuado?</legend>
-        <label><input type="radio" name="lq7" value="a"> Intentar enderezar el hueso.</label>
-        <label><input type="radio" name="lq7" value="b"> Mantener la zona quieta y solicitar evaluación profesional.</label>
-        <label><input type="radio" name="lq7" value="c"> Hacer que la persona camine para probar la lesión.</label>
-      </fieldset>
-      <fieldset class="learning-question"><legend><span>08</span> ¿Qué medida ayuda a reducir el riesgo de infecciones al brindar primeros auxilios?</legend>
-        <label><input type="radio" name="lq8" value="a"> Higienizar las manos y utilizar protección adecuada según el riesgo.</label>
-        <label><input type="radio" name="lq8" value="b"> Compartir guantes usados.</label>
-        <label><input type="radio" name="lq8" value="c"> Tocar sangre directamente si la herida parece pequeña.</label>
-      </fieldset>
-      <div class="learning-quiz-actions"><button type="submit" class="learning-quiz-submit">Calificar mis respuestas</button><button type="button" class="learning-quiz-reset" id="resetLearningQuiz">Reiniciar cuestionario</button></div>
-      <div id="learningQuizResult" class="learning-quiz-result hidden" role="status" aria-live="polite"></div>
-    </form>
-  </section>
-
-  <div class="learning-sources">
-    <div><span class="learning-kicker">PARA SEGUIR APRENDIENDO</span><h3>Fuentes de consulta</h3><p>Los contenidos son educativos y se han organizado tomando como referencia orientaciones de primeros auxilios y servicios oficiales.</p></div>
-    <a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener noreferrer">Guías AHA y Cruz Roja 2024 <span>↗</span></a>
-    <a href="https://www.gob.pe/1013" target="_blank" rel="noopener noreferrer">MINSA · Cómo solicitar atención del SAMU <span>↗</span></a>
-    <a href="https://www.gob.pe/institucion/minsa/noticias/1373698-minsa-samu-ensena-como-actuar-ante-una-emergencia-en-semana-santa" target="_blank" rel="noopener noreferrer">MINSA · Recomendaciones ante emergencias <span>↗</span></a>
-  </div>
-
-  <div class="learning-final-notice"><strong>Importante:</strong> AUXISALUD es una plataforma educativa. La lectura de estos contenidos no reemplaza un curso práctico, una evaluación profesional ni la atención de emergencia. No realices procedimientos para los que no tengas formación. En una emergencia médica en Perú, llama al <a href="tel:106">SAMU 106</a> y sigue las indicaciones del operador.</div>
+<div class="portal-section-label">02 · FUNDAMENTOS DE PRIMEROS AUXILIOS</div>
+<div class="learning-course-hero"><div class="learning-course-copy"><span class="learning-kicker">AUXISALUD · INFORMACIÓN ESENCIAL</span><h2>Conoce los principios para ayudar de forma segura</h2><p>Antes de atender una emergencia, protege el entorno, reconoce las necesidades de la persona y pide ayuda. Aquí encontrarás conocimientos básicos para actuar sin exponerte ni causar daño.</p><div class="learning-hero-points"><span>✓ Conceptos esenciales</span><span>✓ Evaluación inicial</span><span>✓ Prevención y bioseguridad</span></div></div><div class="learning-course-art" aria-hidden="true"><div class="learning-art-orbit"></div><div class="learning-art-cross">✚</div><div class="learning-art-note"><strong>Primero, no causar daño</strong><small>Ayuda dentro de tus conocimientos y solicita apoyo profesional a tiempo.</small></div></div></div>
+<div class="guide-content-grid">
+<article class="guide-info-card"><span class="guide-card-icon">📘</span><h3>¿Qué son los primeros auxilios?</h3><p>Son la atención inmediata y temporal que se brinda a una persona que ha sufrido una lesión o presenta una enfermedad repentina, mientras llega personal de salud o se consigue atención definitiva. Su finalidad es preservar la vida, evitar que la situación empeore y favorecer la recuperación.</p></article>
+<article class="guide-info-card"><span class="guide-card-icon">🎯</span><h3>Objetivos principales</h3><ul><li>Proteger la vida y la seguridad de la persona afectada.</li><li>Evitar complicaciones y lesiones adicionales.</li><li>Aliviar el malestar sin realizar procedimientos fuera de la propia formación.</li><li>Facilitar el acceso oportuno a los servicios de salud.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🧭</span><h3>Principios de actuación</h3><ul><li>Mantener la calma y observar antes de actuar.</li><li>No exponerse a fuego, electricidad, tránsito o sustancias tóxicas.</li><li>Respetar la dignidad, privacidad y voluntad de la persona consciente.</li><li>No administrar medicamentos ni realizar maniobras que no se conocen.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🛑</span><h3>Secuencia PAS: Proteger, Avisar y Socorrer</h3><ol><li><strong>Proteger:</strong> verifica que el lugar sea seguro para ti, la persona afectada y quienes están alrededor.</li><li><strong>Avisar:</strong> llama al servicio correspondiente. Indica ubicación, qué ocurrió, número de afectados y riesgos presentes.</li><li><strong>Socorrer:</strong> brinda ayuda básica dentro de tus capacidades y sigue las indicaciones del operador.</li></ol></article>
+<article class="guide-info-card"><span class="guide-card-icon">🔎</span><h3>Evaluación inicial</h3><ol><li>Comprueba la seguridad del entorno.</li><li>Observa si la persona responde al hablarle y estimularla suavemente.</li><li>Comprueba si respira normalmente. Los jadeos aislados no son respiración normal.</li><li>Si no responde o no respira normalmente, activa emergencias y sigue las instrucciones telefónicas para iniciar RCP.</li><li>Si respira, observa lesiones y sangrado. Evita moverla si sospechas lesión de columna, cuello o pelvis.</li></ol></article>
+<article class="guide-info-card"><span class="guide-card-icon">🧤</span><h3>Bioseguridad y prevención de infecciones</h3><ul><li>Lávate las manos con agua y jabón antes y después de brindar ayuda cuando sea posible.</li><li>Utiliza guantes desechables si existe riesgo de contacto con sangre o fluidos.</li><li>Evita tocar directamente heridas y mucosas.</li><li>Desecha los materiales contaminados de manera segura.</li><li>No reutilices guantes ni material descartable.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🧰</span><h3>¿Qué debe contener un botiquín básico?</h3><p>Debe mantenerse limpio, ordenado, accesible y revisarse periódicamente. Puede incluir:</p><ul><li>Guantes descartables y mascarillas.</li><li>Gasas estériles, apósitos y vendas.</li><li>Cinta adhesiva médica y tijera de punta roma.</li><li>Suero fisiológico para limpieza externa de pequeñas heridas.</li><li>Termómetro, bolsas para residuos y teléfonos de emergencia.</li></ul><p class="guide-caution">No guardes medicamentos para automedicación ni productos vencidos. El botiquín no sustituye la atención profesional.</p></article>
+<article class="guide-info-card"><span class="guide-card-icon">🚫</span><h3>Acciones que debes evitar</h3><ul><li>No mover a una persona con posible lesión de cuello o columna, salvo peligro inmediato.</li><li>No dar alimentos, bebidas o medicamentos a una persona inconsciente.</li><li>No retirar objetos incrustados ni intentar acomodar huesos o articulaciones.</li><li>No aplicar café, pasta dental, alcohol, aceites ni remedios caseros en heridas o quemaduras.</li><li>No abandonar a la persona si puedes permanecer en un lugar seguro.</li></ul></article>
+</div>
+<div class="learning-final-notice"><strong>Recuerda:</strong> estos contenidos no reemplazan la evaluación ni el tratamiento profesional. La capacitación práctica es especialmente importante para RCP, uso de DEA, control de hemorragias y atención del atragantamiento.</div>
+<div class="learning-sources"><div><span class="learning-kicker">FUENTES DE CONSULTA</span><h3>Información para profundizar</h3><p>Consulta recomendaciones oficiales y actualizadas.</p></div><a href="https://www.gob.pe/1013" target="_blank" rel="noopener noreferrer">MINSA · SAMU Perú <span>↗</span></a><a href="https://www.who.int/health-topics/first-aid" target="_blank" rel="noopener noreferrer">OMS · Primeros auxilios <span>↗</span></a><a href="https://www.redcross.org/take-a-class/first-aid" target="_blank" rel="noopener noreferrer">Cruz Roja · Formación <span>↗</span></a></div>
 </section>
 
+<section id="guias" class="section">
+<div class="portal-section-label">04 · GUÍAS Y RECOMENDACIONES</div>
+<div class="guides-hero"><div><span class="tag">ORIENTACIÓN PARA LA VIDA DIARIA</span><h2>Prevenir accidentes también es cuidar la salud</h2><p>Recomendaciones para reconocer riesgos, proteger a tu familia y saber cuándo solicitar atención profesional.</p></div><div class="guides-hero-symbol" aria-hidden="true">🏡</div></div>
+<div class="guide-content-grid">
+<article class="guide-info-card"><span class="guide-card-icon">🏠</span><h3>Accidentes frecuentes en el hogar</h3><p>Caídas, quemaduras, cortes, intoxicaciones y atragantamientos pueden ocurrir en cualquier vivienda.</p><ul><li>Mantén pasillos y escaleras iluminados y libres de cables u objetos.</li><li>Guarda cuchillos, herramientas, productos de limpieza y medicamentos fuera del alcance de los niños.</li><li>Coloca ollas con los mangos hacia dentro y comprueba la temperatura del agua del baño.</li><li>No mezcles productos de limpieza ni los almacenes en envases de bebidas.</li><li>Ante un accidente, asegura el lugar, evalúa a la persona y pide ayuda si hay señales de gravedad.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">👶</span><h3>Prevención y primeros auxilios en niños</h3><ul><li>Supervisa a los niños cerca del agua, escaleras, cocina y espacios de juego.</li><li>Evita dejar a su alcance piezas pequeñas, pilas, monedas, bolsas y alimentos con riesgo de atragantamiento.</li><li>Ante una quemadura térmica, enfría la zona con agua corriente fresca durante 20 minutos y solicita evaluación según la extensión y ubicación.</li><li>Si presenta dificultad respiratoria, coloración azulada, convulsión prolongada o falta de respuesta, solicita ayuda urgente.</li><li>Las técnicas de RCP y desobstrucción cambian según la edad. Sigue instrucciones del operador y formación específica.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🧓</span><h3>Cuidados y prevención en adultos mayores</h3><ul><li>Retira alfombras sueltas, cables y obstáculos; mejora la iluminación de dormitorios, pasillos y baños.</li><li>Instala barras de apoyo donde sea necesario y utiliza calzado firme.</li><li>Después de una caída, no levantes de inmediato a la persona si tiene dolor intenso, golpe en la cabeza, dolor de cadera, cuello o espalda.</li><li>Un golpe en la cabeza requiere especial atención si toma anticoagulantes o presenta confusión, vómitos o somnolencia.</li><li>Ante cambios repentinos del habla, desviación de la cara o debilidad de un brazo, solicita atención de emergencia.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🚨</span><h3>Señales de alarma: cuándo pedir ayuda urgente</h3><ul><li>Dificultad intensa para respirar o dolor u opresión fuerte en el pecho.</li><li>Pérdida de conciencia, confusión repentina o convulsión prolongada.</li><li>Sangrado abundante que no se controla con presión directa.</li><li>Signos de accidente cerebrovascular: cara desviada, debilidad de un brazo o dificultad para hablar.</li><li>Lesión grave, quemadura extensa, intoxicación o sospecha de lesión de columna.</li><li>En bebés y niños, dificultad respiratoria, coloración azulada, falta de respuesta o deterioro rápido.</li></ul><p class="guide-caution">Ante una señal de alarma, no esperes a que los síntomas desaparezcan ni intentes trasladar a la persona si puede empeorar durante el movimiento.</p></article>
+<article class="guide-info-card"><span class="guide-card-icon">📞</span><h3>Cómo solicitar ayuda de emergencia</h3><ol><li>Indica tu nombre y un número de contacto.</li><li>Proporciona dirección exacta, distrito, referencias y cómo acceder al lugar.</li><li>Explica qué sucedió, cuántas personas están afectadas y qué síntomas observas.</li><li>Informa si hay riesgos como fuego, electricidad, sustancias químicas o tránsito.</li><li>No cuelgues hasta que el operador lo indique y sigue sus instrucciones.</li></ol><p>En Perú, el SAMU atiende emergencias médicas a través del <a href="tel:106"><strong>106</strong></a> en las zonas donde está disponible. Si no puedes comunicarte, busca apoyo de los servicios locales o acude a un establecimiento de salud de manera segura.</p></article>
+<article class="guide-info-card"><span class="guide-card-icon">🚑</span><h3>Traslado seguro y atención en un establecimiento</h3><ul><li>Si hay sospecha de lesión de cuello, columna, pelvis o fractura importante, evita mover a la persona y solicita ayuda especializada.</li><li>No traslades por cuenta propia a alguien inconsciente, con dificultad respiratoria intensa o sangrado abundante; activa emergencias.</li><li>Si el traslado por medios propios es seguro y la situación no es crítica, procura que vaya acompañada y evita que conduzca.</li><li>Comunica al personal de salud qué ocurrió, cuándo comenzaron los síntomas y qué medidas se realizaron.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🧼</span><h3>Higiene y prevención cotidiana</h3><ul><li>Lávate las manos con agua y jabón antes de preparar alimentos y después de ir al baño, atender heridas o manipular residuos.</li><li>Mantén los alimentos bien conservados y las superficies limpias.</li><li>Usa casco, cinturón de seguridad y equipo de protección según la actividad.</li><li>Revisa periódicamente el botiquín y ten a mano la dirección del domicilio y contactos de emergencia.</li></ul></article>
+<article class="guide-info-card"><span class="guide-card-icon">🩺</span><h3>¿Cuándo acudir a un centro de salud?</h3><p>Solicita evaluación profesional cuando exista dolor persistente, herida que requiere limpieza o cierre, posible fractura, quemadura con ampollas o lesión en una zona delicada, fiebre acompañada de deterioro, o síntomas que no mejoran. Si aparecen señales de alarma, solicita atención de emergencia.</p><p>La información de AUXISALUD es orientativa y no permite diagnosticar ni reemplaza una consulta.</p></article>
+</div>
+<div class="emergency-hotlines"><div class="hotline-intro"><strong>Ante una emergencia médica</strong><span>Solicita ayuda sin demora.</span></div><a href="tel:106"><strong>106</strong><span>SAMU · Emergencias médicas</span></a><a href="tel:116"><strong>116</strong><span>Bomberos</span></a><a href="tel:105"><strong>105</strong><span>Policía</span></a></div>
+<div class="learning-final-notice"><strong>Importante:</strong> la disponibilidad de servicios puede variar según la localidad. Utiliza el número que corresponda a tu zona y sigue las indicaciones del operador.</div>
+<div class="learning-sources"><div><span class="learning-kicker">FUENTES DE CONSULTA</span><h3>Orientaciones y recomendaciones</h3><p>Consulta información sanitaria de organismos oficiales.</p></div><a href="https://www.gob.pe/1013" target="_blank" rel="noopener noreferrer">MINSA · SAMU <span>↗</span></a><a href="https://www.who.int/news-room/fact-sheets/detail/falls" target="_blank" rel="noopener noreferrer">OMS · Prevención de caídas <span>↗</span></a><a href="https://www.who.int/news-room/fact-sheets/detail/burns" target="_blank" rel="noopener noreferrer">OMS · Quemaduras <span>↗</span></a></div>
+</section>
 <section id="proyecto" class="section">
   <div class="portal-section-label">INFORMACIÓN DEL PROYECTO</div>
   <div class="project-banner">
@@ -1414,26 +1315,7 @@ body{overflow-x:hidden}
   </div>
 </section>
 
-<section id="admin" class="section">
-  <div class="portal-section-label">GESTIÓN Y AMPLIACIÓN DE CONTENIDOS</div>
-  <div class="admin-banner"><span class="tag">MODO EDICIÓN</span><h2>Haz crecer la plataforma</h2><p>Agrega nuevas categorías y después podremos conectar esta sección a una base de datos para guardarlas permanentemente.</p></div>
-  <div class="admin-layout">
-    <div class="admin-box">
-      <form id="addForm">
-        <label>Nombre de la emergencia<input id="name" required placeholder="Ej. Desmayo"></label>
-        <label>Ícono<input id="icon" value="🚑" maxlength="4"></label>
-        <label>Descripción<textarea id="description" required placeholder="Descripción breve"></textarea></label>
-        <label>Pasos básicos (uno por línea)<textarea id="steps" required placeholder="Paso 1&#10;Paso 2&#10;Paso 3"></textarea></label>
-        <button class="primary" type="submit">＋ Agregar a la plataforma</button>
-      </form>
-    </div>
-    <div class="admin-side">
-      <div class="version"><span>VERSIÓN</span><strong>1.2</strong><small>Diseño horizontal + visual</small></div>
-      <h3>Próximas mejoras</h3>
-      <div class="todo">🖼️ Galería de imágenes</div><div class="todo">🎥 Videos educativos</div><div class="todo">📝 Encuestas y validación</div><div class="todo">📊 Resultados del proyecto</div><div class="todo">🔐 Panel de administración permanente</div>
-    </div>
-  </div>
-</section>
+
 </main>
 
 <footer><div><strong>AUXISALUD · Plataforma Digital de Primeros Auxilios</strong><br><small>Innovación II · Enfermería Técnica · Huánuco · 2026</small><br><br><strong>Contacto:</strong> <a href="https://wa.me/51930782170?text=Hola%20AUXISALUD%2C%20quisiera%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">WhatsApp 930 782 170</a> · <a href="tel:+51930782170">Llamar al 930 782 170</a></div><button onclick="showSection('inicio')">Volver arriba ↑</button></footer>
